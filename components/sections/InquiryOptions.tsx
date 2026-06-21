@@ -3,7 +3,7 @@ import { inquiryOptions } from "@/lib/data";
 
 export default function InquiryOptions() {
   return (
-    <section id="quote" className="bg-white">
+    <section id="inquiry" className="bg-white">
       <Container className="py-16">
         <div className="text-center max-w-2xl mx-auto">
           <h2 className="text-2xl lg:text-3xl font-bold text-slate-900">편한 방법으로 문의하세요</h2>

@@ -28,6 +28,11 @@ export const siteConfig = {
   businessNumber: "000-00-00000",
   mailOrderNumber: "제2026-서울-00000호",
   copyright: "© 2026 단비누리. All rights reserved.",
+  // 견적 문의가 접수될 이메일 (사이트 자체 폼 사용 시)
+  quoteEmail: "contact@example.com",
+  // 구글폼을 만들면 여기에 임베드(iframe) 주소나 /viewform 링크를 넣으세요.
+  // 값이 있으면 사이트 폼 대신 구글폼이 자동으로 표시됩니다. (비워두면 사이트 자체 폼 사용)
+  quoteFormUrl: "",
 };
 
 // 상단 유틸 바 - 패밀리 사이트
@@ -65,6 +70,47 @@ export const serviceMenu: MenuCategory[] = [
   },
   {
     label: "배관 청소",
+    items: ["하수구 청소", "배수관 세척", "욕실 배관", "주방 배관", "고압 세척"],
+  },
+];
+
+// ── 서비스 상세 (#services 섹션) ──
+export interface ServiceDetail {
+  icon: LucideIcon;
+  title: string;
+  desc: string;
+  items: string[];
+}
+
+export const serviceDetails: ServiceDetail[] = [
+  {
+    icon: PaintRoller,
+    title: "바닥 세척·왁스 시공",
+    desc: "오래된 바닥의 찌든 때를 벗겨내고 왁스·코팅으로 광택과 내구성을 되살립니다.",
+    items: ["바닥 세척", "왁스 시공", "우레탄 코팅", "에폭시 시공", "논슬립 처리"],
+  },
+  {
+    icon: Layers,
+    title: "대리석 연마 광택",
+    desc: "마모되고 얼룩진 대리석을 연마·광택해 새것 같은 표면으로 복원합니다.",
+    items: ["대리석 연마", "광택 시공", "크리스탈 코팅", "줄눈 처리", "오염 제거"],
+  },
+  {
+    icon: Snowflake,
+    title: "에어컨 살균세척·설치",
+    desc: "분해 살균세척으로 냄새와 곰팡이를 제거하고, 신규·이전 설치까지 책임집니다.",
+    items: ["에어컨 살균세척", "신규 설치", "이전 설치", "시스템 에어컨", "수리·점검"],
+  },
+  {
+    icon: Sparkles,
+    title: "청소·방역",
+    desc: "입주·이사·사무실 청소부터 방역·소독까지, 공간을 위생적으로 관리합니다.",
+    items: ["사무실 청소", "입주 청소", "이사 청소", "방역·소독", "특수 청소"],
+  },
+  {
+    icon: Droplets,
+    title: "배관 청소",
+    desc: "고압 세척으로 막힌 배관과 하수구를 뚫고 악취·역류를 해결합니다.",
     items: ["하수구 청소", "배수관 세척", "욕실 배관", "주방 배관", "고압 세척"],
   },
 ];
@@ -204,8 +250,8 @@ export interface InquiryOption {
 
 export const inquiryOptions: InquiryOption[] = [
   { icon: PhoneCall, title: "간편 견적", desc: "간단한 정보만 남기면 빠르게 견적을 안내합니다.", cta: "견적 신청", href: "#quote" },
-  { icon: CalendarCheck, title: "온라인 예약", desc: "원하는 날짜와 서비스를 직접 선택해 예약하세요.", cta: "예약하기", href: "#reserve" },
-  { icon: MessageSquare, title: "실시간 상담", desc: "궁금한 점을 채팅으로 바로 문의하세요.", cta: "상담하기", href: "#support" },
+  { icon: CalendarCheck, title: "온라인 예약", desc: "원하는 날짜와 서비스를 직접 선택해 예약하세요.", cta: "예약하기", href: "#quote" },
+  { icon: MessageSquare, title: "전화 상담", desc: "급하시면 전화로 바로 문의하세요.", cta: "전화하기", href: "tel:1600-0000" },
 ];
 
 // ── 서비스 브랜드 소개 ──

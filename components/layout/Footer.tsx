@@ -2,7 +2,12 @@ import Container from "@/components/ui/Container";
 import { siteConfig } from "@/lib/data";
 
 const snsLinks = ["유튜브", "페이스북", "인스타그램", "네이버", "블로그", "카카오톡"];
-const legalLinks = ["이용약관", "개인정보처리방침", "파트너지원", "고객지원"];
+const legalLinks = [
+  { label: "이용약관", href: "#" },
+  { label: "개인정보처리방침", href: "/privacy" },
+  { label: "파트너지원", href: "#" },
+  { label: "고객지원", href: "#" },
+];
 
 export default function Footer() {
   return (
@@ -11,8 +16,8 @@ export default function Footer() {
         {/* 약관 링크 */}
         <div className="flex flex-wrap gap-x-5 gap-y-2 text-sm border-b border-slate-700 pb-5">
           {legalLinks.map((link) => (
-            <a key={link} href="#" className="hover:text-white transition-colors">
-              {link}
+            <a key={link.label} href={link.href} className="hover:text-white transition-colors">
+              {link.label}
             </a>
           ))}
         </div>
