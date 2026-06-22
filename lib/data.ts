@@ -20,16 +20,16 @@ import {
 export const siteConfig = {
   name: "단비누리",
   tagline: "바닥시공 · 대리석광택 · 에어컨 · 청소방역 · 배관청소 전문",
-  phone: "1600-0000",
-  hours: "평일 09:00 ~ 18:00 (주말·공휴일 휴무)",
-  email: "contact@example.com",
-  ceo: "대표자명",
-  address: "주소를 입력하세요",
-  businessNumber: "000-00-00000",
+  phone: "02-6448-7221",
+  hours: "평일 10:00 ~ 18:00 (주말·공휴일 휴무)",
+  email: "danbinuri25@naver.com",
+  ceo: "이영기",
+  address: "서울특별시 서초구 논현로11길 49, 2층 (양재동)",
+  businessNumber: "490-81-03515",
   mailOrderNumber: "제2026-서울-00000호",
   copyright: "© 2026 단비누리. All rights reserved.",
   // 견적 문의가 접수될 이메일 (사이트 자체 폼 사용 시)
-  quoteEmail: "contact@example.com",
+  quoteEmail: "danbinuri25@naver.com",
   // 구글폼을 만들면 여기에 임베드(iframe) 주소나 /viewform 링크를 넣으세요.
   // 값이 있으면 사이트 폼 대신 구글폼이 자동으로 표시됩니다. (비워두면 사이트 자체 폼 사용)
   quoteFormUrl: "",
