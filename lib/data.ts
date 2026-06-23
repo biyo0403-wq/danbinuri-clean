@@ -32,7 +32,8 @@ export const siteConfig = {
   quoteEmail: "danbinuri25@naver.com",
   // 구글폼을 만들면 여기에 임베드(iframe) 주소나 /viewform 링크를 넣으세요.
   // 값이 있으면 사이트 폼 대신 구글폼이 자동으로 표시됩니다. (비워두면 사이트 자체 폼 사용)
-  quoteFormUrl: "",
+  quoteFormUrl:
+    "https://docs.google.com/forms/d/e/1FAIpQLScAOM7_P70-Q5li8ovpTHFghZteJ4xemZzZpjW0BhA6iQQJtw/viewform?embedded=true",
 };
 
 // 상단 유틸 바 - 패밀리 사이트
