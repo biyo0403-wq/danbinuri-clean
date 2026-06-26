@@ -16,7 +16,7 @@ import {
 // ── 사이트 공통 정보 (실제 회사 고유정보 아님 / 임시값) ──
 export const siteConfig = {
   name: "단비누리",
-  tagline: "에어컨 살균세척 · 대리석 코팅연마 전문",
+  tagline: "에어컨 살균세척 · 석재관리 전문",
   phone: "02-6448-7221",
   hours: "평일 10:00 ~ 18:00 (주말·공휴일 휴무)",
   email: "danbinuri25@naver.com",
@@ -52,7 +52,7 @@ export interface NavItem {
 export const mainNav: NavItem[] = [
   { label: "회사소개", href: "#about" },
   { label: "에어컨", href: "/services/aircon" },
-  { label: "대리석 코팅연마", href: "/services/marble" },
+  { label: "석재관리", href: "/services/stone" },
 ];
 
 // ── 서비스 전용 페이지 데이터 ──
@@ -92,20 +92,20 @@ export const servicePages: ServicePageData[] = [
     ],
   },
   {
-    slug: "marble",
-    navLabel: "대리석 코팅연마",
-    fullTitle: "대리석 코팅·연마",
-    tag: "Marble Care",
-    heroDesc: "마모된 대리석을 연마·광택해 새것 같은 표면으로 복원합니다.",
+    slug: "stone",
+    navLabel: "석재관리",
+    fullTitle: "석재관리",
+    tag: "Stone Care",
+    heroDesc: "흐려진 석재 바닥을 폴리싱·보수해 새것처럼 되살립니다.",
     longDesc:
-      "대리석은 관리 여하에 따라 수명이 크게 달라집니다. 단비누리는 연마·광택 기술로 스크래치와 오염을 제거하고, 크리스탈 코팅으로 영구적인 광택을 유지시켜 드립니다.",
-    items: ["대리석 연마", "광택 시공", "크리스탈 코팅", "줄눈 처리", "오염 제거"],
+      "석재 바닥은 관리 여하에 따라 수명과 품격이 크게 달라집니다. 단비누리는 폴리싱과 보수 기술로 흐려지고 손상된 석재를 본래의 깊은 광택과 평탄함으로 복원합니다.",
+    items: ["바닥폴리싱", "바닥보수"],
     gradient: "linear-gradient(135deg, #292524 0%, #78716c 100%)",
     features: [
-      { title: "스크래치 완전 제거", desc: "다이아몬드 연마석으로 흠집과 오염 제거" },
-      { title: "크리스탈 코팅", desc: "고광택 크리스탈 코팅으로 반영구 보호" },
-      { title: "줄눈 복원", desc: "변색·오염된 줄눈을 깨끗하게 복원" },
-      { title: "전문 기술력", desc: "10년 이상 대리석 전문 경력 보유팀" },
+      { title: "거울 같은 광택 복원", desc: "다이아몬드 패드 단계별 폴리싱으로 깊은 광택 구현" },
+      { title: "손상 부위 원상 복구", desc: "깨짐·파임·균열을 전용 충전재로 메운 뒤 평탄 연마" },
+      { title: "석재 종류별 맞춤 공정", desc: "대리석·화강석·테라조 등 재질별 적합 공정 적용" },
+      { title: "전문 기술력", desc: "10년 이상 석재 시공 경력 보유팀" },
     ],
   },
 ];
@@ -118,11 +118,11 @@ export const serviceReasons: Record<string, ServiceFeature[]> = {
     { title: "설치·이전·AS 원스톱", desc: "설치부터 사후 관리까지 한 팀이 책임" },
     { title: "공인 기술 인력 투입", desc: "전기기사·냉동기사 자격 보유 전문팀 시공" },
   ],
-  marble: [
-    { title: "다이아몬드 연마 장비 보유", desc: "최신 다이아몬드 연마석으로 스크래치 제거" },
-    { title: "크리스탈 코팅 전문", desc: "반영구 코팅으로 광택·오염 방지 동시 해결" },
-    { title: "줄눈 복원 병행", desc: "오염·변색된 줄눈까지 함께 깔끔하게 복원" },
-    { title: "재질별 맞춤 공정", desc: "대리석 종류별 적합한 약품·연마 단계 적용" },
+  stone: [
+    { title: "다이아몬드 폴리싱 장비 보유", desc: "최신 폴리싱 장비로 거울 같은 광택 구현" },
+    { title: "손상 보수 전문", desc: "깨짐·파임·균열을 전용 충전재로 자연스럽게 복구" },
+    { title: "보수·폴리싱 원스톱", desc: "손상 보수부터 광택까지 한 팀이 책임 시공" },
+    { title: "재질별 맞춤 공정", desc: "대리석·화강석·테라조 등 석재 종류별 적합 공정 적용" },
   ],
 };
 
@@ -132,10 +132,10 @@ export const serviceSolutions: Record<string, ServiceFeature[]> = {
     { title: "POINT 02 — 검증된 살균제로 세균·곰팡이 제거", desc: "식약처 인증 살균제를 사용해 안전하고 확실하게 제거합니다." },
     { title: "POINT 03 — 시공 후 작동 확인까지 완료", desc: "세척·설치 완료 후 정상 작동 여부를 현장에서 직접 확인하고 마무리합니다." },
   ],
-  marble: [
-    { title: "POINT 01 — 대리석 종류별 맞춤 연마 공정", desc: "천연·인조 대리석 재질에 따라 연마 단계와 약품을 달리 적용합니다." },
-    { title: "POINT 02 — 다이아몬드 그릿 단계별 연마", desc: "단계별 연마로 스크래치와 오염을 순차적으로 제거합니다." },
-    { title: "POINT 03 — 크리스탈 코팅으로 반영구 광택 유지", desc: "연마 완료 후 크리스탈 코팅을 적용해 광택을 오래 유지합니다." },
+  stone: [
+    { title: "POINT 01 — 석재 상태 진단 후 공정 설계", desc: "석재 종류와 손상·마모 상태를 확인한 뒤 폴리싱·보수 공정을 설계합니다." },
+    { title: "POINT 02 — 다이아몬드 그릿 단계별 폴리싱·보수", desc: "단계별 연마와 전용 충전재 보수로 광택과 평탄함을 함께 복원합니다." },
+    { title: "POINT 03 — 시공 후 광택·평탄도 확인까지 완료", desc: "완료 후 광택과 표면 평탄도를 직접 확인하고 마무리합니다." },
   ],
 };
 
@@ -207,60 +207,27 @@ export const subServicePages: SubServicePage[] = [
       { title: "수리비가 얼마나 나올지 몰라 불안해요", desc: "진단 후 견적 먼저, 동의 후 수리 진행" },
     ],
   },
-  // ── 대리석 코팅연마 ──
+  // ── 석재관리 ──
   {
-    category: "marble", slug: "grind", navLabel: "대리석 연마",
-    heroTitle: "대리석 연마",
-    heroDesc: "다이아몬드 연마석으로 스크래치를 없애고 본래 표면을 되찾습니다",
-    intro: "대리석 표면의 스크래치와 흐릿함은 다이아몬드 연마 장비로만 완전히 제거할 수 있습니다. 단비누리는 그릿 단계별 연마로 매끄러운 표면을 복원합니다.",
+    category: "stone", slug: "polishing", navLabel: "바닥폴리싱",
+    heroTitle: "바닥폴리싱",
+    heroDesc: "흐려진 석재 바닥을 연마·광택해 거울 같은 표면으로 되살립니다",
+    intro: "대리석·화강석·테라조 등 석재 바닥은 시간이 지나면 광택을 잃고 흐려집니다. 단비누리는 다이아몬드 패드로 단계별 폴리싱하여 본래의 깊은 광택을 복원합니다.",
     painPoints: [
-      { title: "대리석 표면에 스크래치가 많이 생겼어요", desc: "다이아몬드 연마로 스크래치 완전 제거" },
-      { title: "오래된 대리석이 흐릿하고 광택이 없어요", desc: "연마 후 본래 대리석 광택 복원" },
-      { title: "관리 업체마다 방법이 달라 믿기 어려워요", desc: "표준화된 연마 공정으로 일관된 품질" },
+      { title: "석재 바닥이 흐릿하고 광택이 사라졌어요", desc: "단계별 폴리싱으로 거울 같은 광택 복원" },
+      { title: "사람이 많이 다녀 통로만 닳아 얼룩져요", desc: "바닥 전체 균일 연마로 광택 차이 제거" },
+      { title: "왁스칠은 금방 벗겨져 다시 흐려져요", desc: "왁스가 아닌 석재 자체 연마로 광택 오래 유지" },
     ],
   },
   {
-    category: "marble", slug: "polish", navLabel: "광택 시공",
-    heroTitle: "광택 시공",
-    heroDesc: "연마 후 전문 광택제로 대리석 본연의 윤기를 완성합니다",
-    intro: "연마만으로는 오래가지 않습니다. 전문 광택제를 균일하게 도포해야 광택이 오래 유지됩니다. 단비누리는 공간 전체의 대리석 광택을 균일하게 완성합니다.",
+    category: "stone", slug: "repair", navLabel: "바닥보수",
+    heroTitle: "바닥보수",
+    heroDesc: "깨짐·파임·균열·줄눈 손상까지, 석재 바닥을 원상 복구합니다",
+    intro: "석재 바닥의 크랙, 파임, 들뜸, 줄눈 손상은 방치하면 점점 커집니다. 단비누리는 손상 부위를 전용 충전재로 메우고 주변과 자연스럽게 연마해 티 나지 않게 복구합니다.",
     painPoints: [
-      { title: "연마는 했는데 광택이 오래가지 않아요", desc: "광택제 시공으로 광택 지속 기간 연장" },
-      { title: "공간 고급스러움을 더 높이고 싶어요", desc: "전문 광택 시공으로 고급 인테리어 완성" },
-      { title: "바닥·계단·기둥 대리석 광택이 제각각이에요", desc: "공간 전체 균일한 광택 시공" },
-    ],
-  },
-  {
-    category: "marble", slug: "crystal", navLabel: "크리스탈 코팅",
-    heroTitle: "크리스탈 코팅",
-    heroDesc: "반영구적인 오염 방지막으로 대리석을 오래 보호합니다",
-    intro: "크리스탈 코팅은 대리석 표면에 유리막을 형성해 광택을 유지하면서 오염과 스크래치로부터 보호합니다. 자주 광택을 맡기는 비용과 수고를 줄여드립니다.",
-    painPoints: [
-      { title: "광택 시공 후에도 오염이 금방 생겨요", desc: "크리스탈 코팅으로 오염 방지막 형성" },
-      { title: "자주 광택을 맡기는 비용이 부담돼요", desc: "코팅으로 광택 유지 기간 대폭 연장" },
-      { title: "대리석이 오염에 너무 취약해요", desc: "크리스탈 코팅으로 반영구 보호" },
-    ],
-  },
-  {
-    category: "marble", slug: "grout", navLabel: "줄눈 처리",
-    heroTitle: "줄눈 처리",
-    heroDesc: "변색·오염된 줄눈을 깨끗하게 복원하고 방균·방수 처리합니다",
-    intro: "줄눈은 타일·대리석 사이 틈을 채우는 부분으로, 오염되면 전체 공간이 지저분해 보입니다. 기존 줄눈을 제거하고 방균·방수 기능의 새 줄눈으로 복원합니다.",
-    painPoints: [
-      { title: "줄눈이 검게 변색돼 바닥이 지저분해요", desc: "줄눈 제거 후 새 줄눈으로 깔끔하게 복원" },
-      { title: "줄눈에 곰팡이가 계속 생겨요", desc: "방균 줄눈 시공으로 곰팡이 재발 방지" },
-      { title: "줄눈 틈이 벌어져 물이 스며들어요", desc: "방수 줄눈 처리로 누수 차단" },
-    ],
-  },
-  {
-    category: "marble", slug: "stain", navLabel: "오염 제거",
-    heroTitle: "오염 제거",
-    heroDesc: "커피·녹·기름 등 일반 청소로 지워지지 않는 얼룩을 전문 약품으로 제거합니다",
-    intro: "대리석은 강한 산성·알칼리 약품에 손상되기 쉽습니다. 단비누리는 대리석 전용 약품으로 재질 손상 없이 얼룩만 안전하게 제거합니다.",
-    painPoints: [
-      { title: "커피·음료 얼룩이 지워지지 않아요", desc: "대리석 전용 약품으로 깊은 오염 제거" },
-      { title: "대리석이 녹·철분에 오염됐어요", desc: "철분 제거제로 녹 얼룩 깔끔하게 제거" },
-      { title: "강한 약품을 써서 대리석이 손상됐어요", desc: "전문 약품으로 손상 없이 오염만 제거" },
+      { title: "바닥 석재가 깨지거나 파였어요", desc: "전용 충전재로 메운 뒤 평탄하게 연마" },
+      { title: "줄눈이 깨지고 벌어져 물이 스며들어요", desc: "줄눈 재시공으로 방수·미관 동시 복원" },
+      { title: "부분 보수 자국이 너무 티가 나요", desc: "주변과 동일하게 연마·광택해 자연스럽게 마감" },
     ],
   },
 ];
@@ -273,8 +240,8 @@ export interface MenuCategory {
 
 export const serviceMenu: MenuCategory[] = [
   {
-    label: "대리석 연마 광택",
-    items: ["대리석 연마", "광택 시공", "크리스탈 코팅", "줄눈 처리", "오염 제거"],
+    label: "석재관리",
+    items: ["바닥폴리싱", "바닥보수"],
   },
   {
     label: "에어컨 살균세척·설치",
@@ -299,9 +266,9 @@ export const serviceDetails: ServiceDetail[] = [
   },
   {
     icon: Layers,
-    title: "대리석 연마 광택",
-    desc: "마모되고 얼룩진 대리석을 연마·광택해 새것 같은 표면으로 복원합니다.",
-    items: ["대리석 연마", "광택 시공", "크리스탈 코팅", "줄눈 처리", "오염 제거"],
+    title: "석재관리",
+    desc: "흐려지고 손상된 석재 바닥을 폴리싱·보수해 새것 같은 표면으로 복원합니다.",
+    items: ["바닥폴리싱", "바닥보수"],
   },
 ];
 
@@ -330,9 +297,9 @@ export const heroSlides: HeroSlide[] = [
     cta: "견적 문의하기",
   },
   {
-    tag: "대리석 코팅·연마",
-    heading: "새것 같은 대리석\n코팅연마 시공",
-    sub: "마모된 대리석을 연마·광택해 완벽하게 복원합니다.",
+    tag: "석재관리",
+    heading: "새것 같은 석재 바닥\n폴리싱·보수 시공",
+    sub: "흐려지고 손상된 석재를 본래 광택으로 복원합니다.",
     gradient: "linear-gradient(135deg, #292524 0%, #78716c 100%)",
     cta: "견적 문의하기",
   },
@@ -348,7 +315,7 @@ export const brandVision = {
 export const brandMission = {
   label: "Mission",
   title: "통합 솔루션으로 고객의 공간을 지속적으로 케어",
-  desc: "에어컨 살균세척부터 대리석 코팅·연마까지 — 검증된 전문 공정으로 고객의 공간을 책임집니다. 고객이 본업에 집중할 수 있도록, 공간 관리는 단비누리에 맡기세요.",
+  desc: "에어컨 살균세척부터 석재관리까지 — 검증된 전문 공정으로 고객의 공간을 책임집니다. 고객이 본업에 집중할 수 있도록, 공간 관리는 단비누리에 맡기세요.",
 };
 
 export const brandStory = {
@@ -435,11 +402,11 @@ export const bestReviews: BestReview[] = Array.from({ length: 9 }, (_, i) => ({
 }));
 
 export const liveReviews = [
-  { name: "김○○", service: "입주청소", text: "구석구석 꼼꼼하게 해주셔서 만족스러웠습니다." },
+  { name: "김○○", service: "바닥보수", text: "깨지고 파였던 현관 바닥이 감쪽같이 복구됐습니다." },
   { name: "이○○", service: "에어컨청소", text: "분해세척 후 냉방이 확실히 시원해졌어요." },
-  { name: "박○○", service: "줄눈시공", text: "욕실이 새것처럼 깔끔해졌습니다." },
-  { name: "최○○", service: "이사청소", text: "시간 약속 잘 지키고 응대도 친절했어요." },
-  { name: "정○○", service: "곰팡이제거", text: "장마철 곰팡이가 싹 사라졌습니다." },
+  { name: "박○○", service: "바닥폴리싱", text: "흐려졌던 로비 바닥이 거울처럼 광이 살아났어요." },
+  { name: "최○○", service: "에어컨 이전설치", text: "이사하면서 재설치했는데 성능 그대로네요." },
+  { name: "정○○", service: "에어컨 살균세척", text: "장마철 묵은 곰팡이 냄새가 싹 사라졌습니다." },
 ];
 
 // ── 통계 데이터 ──
@@ -452,7 +419,7 @@ export const teamStats: TeamStat[] = [
   { label: "전문청소팀", value: "80팀+" },
   { label: "시공팀", value: "30팀+" },
   { label: "가전청소팀", value: "40팀+" },
-  { label: "대리석시공팀", value: "20팀+" },
+  { label: "석재관리팀", value: "20팀+" },
 ];
 
 export const totalCustomers = "120,000+";
@@ -515,5 +482,5 @@ export const brands: BrandItem[] = [
 // ── 대표 서비스 카테고리 아이콘 (Hero 바로가기 4개) ──
 export const featuredIcons: { icon: LucideIcon; label: string }[] = [
   { icon: Snowflake, label: "에어컨 살균·설치" },
-  { icon: Layers, label: "대리석 연마·광택" },
+  { icon: Layers, label: "석재관리" },
 ];

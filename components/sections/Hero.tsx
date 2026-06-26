@@ -9,12 +9,12 @@ export default function Hero() {
           공공기관·기업 시설관리 용역 전문
         </span>
         <h1 className="mt-5 text-4xl lg:text-5xl font-extrabold leading-tight">
-          바닥부터 에어컨까지,
+          에어컨부터 석재 바닥까지,
           <br />
           시설관리 전부 맡기세요
         </h1>
         <p className="mt-5 text-lg text-blue-100">
-          바닥 세척·왁스 &nbsp;|&nbsp; 대리석 연마·광택 &nbsp;|&nbsp; 에어컨 살균세척·설치 &nbsp;|&nbsp; 청소·방역
+          에어컨 살균세척·설치 &nbsp;|&nbsp; 석재 바닥폴리싱·보수
           <br />
           한 번의 문의로 시설관리의 모든 것을 해결합니다.
         </p>

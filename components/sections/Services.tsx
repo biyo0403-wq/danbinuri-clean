@@ -9,7 +9,7 @@ export default function Services() {
         <div className="text-center max-w-2xl mx-auto">
           <h2 className="text-2xl lg:text-3xl font-bold text-slate-900">전문 서비스</h2>
           <p className="mt-3 text-slate-500">
-            바닥부터 배관까지, 시설관리에 필요한 모든 서비스를 한 곳에서 제공합니다.
+            에어컨부터 석재 바닥까지, 시설관리에 필요한 서비스를 한 곳에서 제공합니다.
           </p>
         </div>
 
