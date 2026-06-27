@@ -40,15 +40,30 @@ export default function HeroSlider() {
             className="relative w-full h-full shrink-0 flex items-center justify-center"
             style={{ background: slide.gradient }}
           >
-            {/* 배경 장식 원 */}
-            <div
-              className="absolute right-[-10%] top-[-20%] rounded-full opacity-10"
-              style={{ width: "60vw", height: "60vw", background: "white" }}
-            />
-            <div
-              className="absolute left-[-5%] bottom-[-15%] rounded-full opacity-5"
-              style={{ width: "40vw", height: "40vw", background: "white" }}
-            />
+            {/* 배경 사진 (파일이 없으면 위 그라데이션이 그대로 보임) */}
+            {slide.image && (
+              <div
+                className="absolute inset-0 bg-cover bg-center"
+                style={{ backgroundImage: `url(${slide.image})` }}
+              />
+            )}
+
+            {/* 배경 장식 원 (사진이 없을 때만 표시) */}
+            {!slide.image && (
+              <>
+                <div
+                  className="absolute right-[-10%] top-[-20%] rounded-full opacity-10"
+                  style={{ width: "60vw", height: "60vw", background: "white" }}
+                />
+                <div
+                  className="absolute left-[-5%] bottom-[-15%] rounded-full opacity-5"
+                  style={{ width: "40vw", height: "40vw", background: "white" }}
+                />
+              </>
+            )}
+
+            {/* 가독성 오버레이 (흰 글자가 잘 보이도록 어둡게) */}
+            <div className="absolute inset-0 bg-black/45" />
 
             {/* 텍스트 */}
             <div className="relative z-10 text-center text-white px-6 max-w-3xl mx-auto">

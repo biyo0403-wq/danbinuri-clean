@@ -267,6 +267,7 @@ export interface HeroSlide {
   heading: string;
   sub: string;
   gradient: string;
+  image?: string;
   cta: string;
 }
 
@@ -276,6 +277,7 @@ export const heroSlides: HeroSlide[] = [
     heading: "전문가의 손길로\n완벽하게 케어합니다",
     sub: "단비누리와 함께 공간의 가치를 높이세요.",
     gradient: "linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 100%)",
+    image: "/images/hero-1.jpg",
     cta: "견적 문의하기",
   },
   {
@@ -283,6 +285,7 @@ export const heroSlides: HeroSlide[] = [
     heading: "쾌적한 공기\n에어컨 살균세척",
     sub: "분해 살균세척으로 냄새와 곰팡이를 완전히 제거합니다.",
     gradient: "linear-gradient(135deg, #0369a1 0%, #0ea5e9 100%)",
+    image: "/images/hero-2.jpg",
     cta: "견적 문의하기",
   },
   {
@@ -290,6 +293,7 @@ export const heroSlides: HeroSlide[] = [
     heading: "새것 같은 대리석\n줄눈·연마·보수 시공",
     sub: "줄눈부터 광택·보수까지 대리석을 본래 모습으로 복원합니다.",
     gradient: "linear-gradient(135deg, #292524 0%, #78716c 100%)",
+    image: "/images/hero-3.jpg",
     cta: "견적 문의하기",
   },
 ];
