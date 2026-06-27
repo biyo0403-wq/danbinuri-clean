@@ -3,7 +3,7 @@ import { brandVision } from "@/lib/data";
 export default function Vision() {
   return (
     <section id="about" className="bg-slate-900 text-white">
-      <div className="max-w-content mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
+      <div className="max-w-content mx-auto px-5 sm:px-8 lg:px-12 py-24 lg:py-32">
         <div className="max-w-3xl">
           <span className="text-sm font-bold tracking-widest uppercase text-blue-400">
             {brandVision.label}

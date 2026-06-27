@@ -3,7 +3,7 @@ import { brandMission, serviceDetails } from "@/lib/data";
 export default function Mission() {
   return (
     <section className="bg-white">
-      <div className="max-w-content mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
+      <div className="max-w-content mx-auto px-5 sm:px-8 lg:px-12 py-24 lg:py-32">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* 왼쪽: 텍스트 */}
           <div>
