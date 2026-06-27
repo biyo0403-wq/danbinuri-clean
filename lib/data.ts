@@ -50,7 +50,7 @@ export interface NavItem {
 }
 
 export const mainNav: NavItem[] = [
-  { label: "회사소개", href: "#about" },
+  { label: "회사소개", href: "/" },
   { label: "에어컨", href: "/services/aircon" },
   { label: "석재보수", href: "/services/stone" },
 ];

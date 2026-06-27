@@ -13,7 +13,7 @@ export default function Header() {
       <Container>
         <div className="flex items-center justify-between h-16 gap-6">
           {/* 로고 */}
-          <a href="#" className="text-2xl font-extrabold text-blue-700 shrink-0">
+          <a href="/" className="text-2xl font-extrabold text-blue-700 shrink-0">
             단비누리
           </a>
 
