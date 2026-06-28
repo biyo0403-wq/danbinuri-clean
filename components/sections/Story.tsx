@@ -14,7 +14,7 @@ export default function Story() {
               }}
             >
               <p className="text-white text-2xl lg:text-3xl font-extrabold leading-snug">
-                &ldquo;깨끗한 공간이<br />곧 삶의 질&rdquo;
+                &ldquo;믿고 맡기는<br />공간 관리&rdquo;
               </p>
             </div>
             {/* 장식 카드 */}
