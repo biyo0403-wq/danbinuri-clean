@@ -300,14 +300,16 @@ export const heroSlides: HeroSlide[] = [
 
 // ── 브랜드 스토리 ──
 export const brandVision = {
-  label: "Vision",
-  title: "공간의 질을 최상의 기준으로 케어합니다",
+  label: "Our Vision",
+  title: "공간의 질을\n최상의 기준으로 케어합니다",
+  en: "We care for the quality of your space at the highest standard.",
   desc: "단비누리는 전문화된 시설관리 서비스로 모든 공간이 언제나 최상의 상태를 유지할 수 있도록 책임집니다. 표준화된 공정과 검증된 전문 인력으로 어디서나 균일한 품질을 제공합니다.",
 };
 
 export const brandMission = {
-  label: "Mission",
-  title: "통합 솔루션으로 고객의 공간을 지속적으로 케어",
+  label: "Our Mission",
+  title: "통합 솔루션으로\n고객의 공간을 지속적으로 케어합니다",
+  en: "We continuously care for your space with all-in-one solutions.",
   desc: "에어컨 살균세척부터 석재보수까지 — 검증된 전문 공정으로 고객의 공간을 책임집니다. 고객이 본업에 집중할 수 있도록, 공간 관리는 단비누리에 맡기세요.",
 };
 
