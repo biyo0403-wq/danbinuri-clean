@@ -8,12 +8,21 @@ export default function Story() {
           {/* 왼쪽: 비주얼 카드 */}
           <div className="relative">
             <div
-              className="rounded-2xl w-full aspect-[4/3] flex items-end p-8"
+              className="relative overflow-hidden rounded-2xl w-full aspect-[4/3] flex items-end p-8"
               style={{
                 background: "linear-gradient(135deg, #1e3a8a 0%, #0ea5e9 100%)",
               }}
             >
-              <p className="text-white text-2xl lg:text-3xl font-extrabold leading-snug">
+              {brandStory.image && (
+                <>
+                  <div
+                    className="absolute inset-0 bg-cover bg-center"
+                    style={{ backgroundImage: `url(${brandStory.image})` }}
+                  />
+                  <div className="absolute inset-0 bg-black/40" />
+                </>
+              )}
+              <p className="relative z-10 text-white text-2xl lg:text-3xl font-extrabold leading-snug">
                 &ldquo;믿고 맡기는<br />공간 관리&rdquo;
               </p>
             </div>

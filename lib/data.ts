@@ -318,6 +318,7 @@ export const brandVision = {
   title: "공간의 질을\n최상의 기준으로 케어합니다",
   en: "We care for the quality of your space at the highest standard.",
   desc: "단비누리는 전문화된 시설관리 서비스로 모든 공간이 언제나 최상의 상태를 유지할 수 있도록 책임집니다. 표준화된 공정과 검증된 전문 인력으로 어디서나 균일한 품질을 제공합니다.",
+  image: "/images/vision.jpg",
 };
 
 export const brandMission = {
@@ -325,11 +326,13 @@ export const brandMission = {
   title: "통합 솔루션으로\n고객의 공간을 지속적으로 케어합니다",
   en: "We continuously care for your space with all-in-one solutions.",
   desc: "에어컨 살균세척부터 석재보수까지 — 검증된 전문 공정으로 고객의 공간을 책임집니다. 고객이 본업에 집중할 수 있도록, 공간 관리는 단비누리에 맡기세요.",
+  image: "/images/mission.jpg",
 };
 
 export const brandStory = {
   label: "Our Story",
   title: "믿고 맡기는 공간 관리, 단비누리",
+  image: "/images/story.jpg",
   paragraphs: [
     "단비누리는 고객이 믿고 맡길 수 있는 공간 관리를 약속합니다. 에어컨 살균세척부터 대리석 줄눈·연마·보수까지, 검증된 전문 인력과 표준화된 공정으로 보이지 않는 위생과 보이는 품격을 함께 책임집니다.",
     "공공기관과 기업 현장에서 쌓아온 경험을 바탕으로, 어디서나 한결같은 품질을 제공합니다. 시공으로 끝나지 않고 사후까지 책임지는 자세 — 고객의 공간을 내 공간처럼 대하는 마음이 단비누리가 신뢰받는 이유입니다.",
