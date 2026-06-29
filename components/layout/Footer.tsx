@@ -1,7 +1,6 @@
 import Container from "@/components/ui/Container";
 import { siteConfig } from "@/lib/data";
 
-const snsLinks = ["유튜브", "페이스북", "인스타그램", "네이버", "블로그", "카카오톡"];
 const legalLinks = [
   { label: "이용약관", href: "#" },
   { label: "개인정보처리방침", href: "/privacy" },
@@ -24,19 +23,8 @@ export default function Footer() {
 
         <div className="mt-6 grid md:grid-cols-3 gap-8">
           <div>
-            <p className="text-white font-bold text-lg">{siteConfig.name}</p>
+            <p className="text-white font-bold text-lg">(주)단비누리</p>
             <p className="mt-2 text-sm">{siteConfig.tagline}</p>
-            <div className="mt-4 flex flex-wrap gap-2">
-              {snsLinks.map((sns) => (
-                <a
-                  key={sns}
-                  href="#"
-                  className="px-2.5 py-1 rounded bg-slate-800 text-xs hover:bg-slate-700 transition-colors"
-                >
-                  {sns}
-                </a>
-              ))}
-            </div>
           </div>
 
           <div className="text-sm space-y-1 md:col-span-2">
