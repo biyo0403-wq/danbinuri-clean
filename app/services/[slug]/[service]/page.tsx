@@ -68,87 +68,102 @@ export default function SubServicePage({
     <>
       <Header />
       <main>
-        {/* ── 히어로 (care1 스타일: 어두운 배경 + 우측 이미지) ── */}
-        <section className="relative bg-slate-950 text-white overflow-hidden" style={{ minHeight: "440px" }}>
-          {/* 우측 이미지 영역 */}
-          <div className="absolute inset-0 flex">
-            <div className="hidden lg:block lg:w-[45%]" />
-            <div className="flex-1 bg-slate-700 flex items-center justify-center">
-              {/* 이미지 준비 전 플레이스홀더 */}
-              <span className="text-slate-500 text-sm">시공 이미지 준비 중</span>
-            </div>
-          </div>
-          {/* 좌→우 그라디언트 오버레이 */}
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/95 lg:via-slate-950/80 to-transparent" />
-
-          {/* 콘텐츠 */}
-          <div className="relative z-10 flex flex-col" style={{ minHeight: "440px" }}>
-            {/* 브레드크럼 */}
-            <Container className="pt-8">
-              <div className="flex justify-end items-center gap-1 text-xs text-slate-400">
-                <span>{parent.navLabel}</span>
-                <ChevronRight className="w-3 h-3" />
-                <span className="text-white font-semibold">{sub.navLabel}</span>
+        {/* ── 히어로 (care1 스타일: 어두운 배경 + 우측 이미지, 좌우 여백 적용) ── */}
+        <section className="bg-white pt-6 pb-6 lg:pt-10 lg:pb-10">
+          <Container>
+            <div
+              className="relative rounded-2xl bg-slate-950 text-white overflow-hidden"
+              style={{ minHeight: "440px" }}
+            >
+              {/* 우측 이미지 영역 */}
+              <div className="absolute inset-0 flex">
+                <div className="hidden lg:block lg:w-[45%]" />
+                <div className="flex-1 relative bg-slate-700">
+                  {sub.heroImage ? (
+                    <div
+                      className="absolute inset-0 bg-cover bg-center"
+                      style={{ backgroundImage: `url(${sub.heroImage})` }}
+                    />
+                  ) : (
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <span className="text-slate-500 text-sm">시공 이미지 준비 중</span>
+                    </div>
+                  )}
+                </div>
               </div>
-            </Container>
+              {/* 좌→우 그라디언트 오버레이 */}
+              <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/95 lg:via-slate-950/80 to-transparent" />
 
-            {/* 본문 텍스트 */}
-            <Container className="pt-6 pb-0 flex-1">
-              <p className="text-sm font-bold tracking-widest uppercase text-blue-400">
-                {parent.tag}
-              </p>
-              <h1 className="mt-3 text-4xl sm:text-5xl font-extrabold leading-tight max-w-lg">
-                {sub.heroTitle}
-              </h1>
-              <p className="mt-4 text-slate-300 text-lg max-w-md leading-relaxed">
-                {sub.heroDesc}
-              </p>
+              {/* 콘텐츠 */}
+              <div className="relative z-10 flex flex-col" style={{ minHeight: "440px" }}>
+                {/* 브레드크럼 */}
+                <div className="pt-8 px-5 sm:px-8 lg:px-12">
+                  <div className="flex justify-end items-center gap-1 text-xs text-slate-400">
+                    <span>{parent.navLabel}</span>
+                    <ChevronRight className="w-3 h-3" />
+                    <span className="text-white font-semibold">{sub.navLabel}</span>
+                  </div>
+                </div>
 
-              <div className="mt-8 flex flex-wrap gap-3">
-                <a
-                  href={`tel:${siteConfig.phone}`}
-                  className="rounded-full bg-blue-600 text-white px-7 py-3 font-bold text-sm hover:bg-blue-700 transition-colors"
-                >
-                  상담 문의하기
-                </a>
-                <a
-                  href={siteConfig.quoteFormUrl || "#quote"}
-                  target={siteConfig.quoteFormUrl ? "_blank" : undefined}
-                  rel={siteConfig.quoteFormUrl ? "noopener noreferrer" : undefined}
-                  className="rounded-full border border-white/40 text-white px-7 py-3 font-bold text-sm hover:bg-white/10 transition-colors"
-                >
-                  지금 예약하기
-                </a>
+                {/* 본문 텍스트 */}
+                <div className="pt-6 pb-0 px-5 sm:px-8 lg:px-12 flex-1">
+                  <p className="text-sm font-bold tracking-widest uppercase text-blue-400">
+                    {parent.tag}
+                  </p>
+                  <h1 className="mt-3 text-4xl sm:text-5xl font-extrabold leading-tight max-w-lg">
+                    {sub.heroTitle}
+                  </h1>
+                  <p className="mt-4 text-slate-300 text-lg max-w-md leading-relaxed">
+                    {sub.heroDesc}
+                  </p>
+
+                  <div className="mt-8 flex flex-wrap gap-3">
+                    <a
+                      href={`tel:${siteConfig.phone}`}
+                      className="rounded-full bg-blue-600 text-white px-7 py-3 font-bold text-sm hover:bg-blue-700 transition-colors"
+                    >
+                      상담 문의하기
+                    </a>
+                    <a
+                      href={siteConfig.quoteFormUrl || "#quote"}
+                      target={siteConfig.quoteFormUrl ? "_blank" : undefined}
+                      rel={siteConfig.quoteFormUrl ? "noopener noreferrer" : undefined}
+                      className="rounded-full border border-white/40 text-white px-7 py-3 font-bold text-sm hover:bg-white/10 transition-colors"
+                    >
+                      지금 예약하기
+                    </a>
+                  </div>
+                </div>
+
+                {/* 하단 탭바 */}
+                <div className="mt-10 border-t border-white/10">
+                  <div className="px-5 sm:px-8 lg:px-12">
+                    <nav>
+                      <ul className="flex gap-6 overflow-x-auto py-4">
+                        {siblings.map((sib) => {
+                          const isActive = sib.slug === params.service;
+                          return (
+                            <li key={sib.slug} className="shrink-0">
+                              <a
+                                href={`/services/${params.slug}/${sib.slug}`}
+                                className={`block pb-1 text-sm font-semibold transition-colors border-b-2 ${
+                                  isActive
+                                    ? "text-white border-blue-500"
+                                    : "text-slate-400 border-transparent hover:text-white hover:border-slate-400"
+                                }`}
+                              >
+                                {sib.navLabel}
+                              </a>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </nav>
+                  </div>
+                </div>
               </div>
-            </Container>
-
-            {/* 하단 탭바 */}
-            <div className="mt-10 border-t border-white/10">
-              <Container>
-                <nav>
-                  <ul className="flex gap-6 overflow-x-auto py-4">
-                    {siblings.map((sib) => {
-                      const isActive = sib.slug === params.service;
-                      return (
-                        <li key={sib.slug} className="shrink-0">
-                          <a
-                            href={`/services/${params.slug}/${sib.slug}`}
-                            className={`block pb-1 text-sm font-semibold transition-colors border-b-2 ${
-                              isActive
-                                ? "text-white border-blue-500"
-                                : "text-slate-400 border-transparent hover:text-white hover:border-slate-400"
-                            }`}
-                          >
-                            {sib.navLabel}
-                          </a>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </nav>
-              </Container>
             </div>
-          </div>
+          </Container>
         </section>
 
         {/* 고민 카드 */}

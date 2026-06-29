@@ -148,6 +148,8 @@ export interface SubServicePage {
   heroDesc: string;
   intro: string;
   painPoints: Array<{ title: string; desc: string }>;
+  /** 히어로 배경 우측에 들어가는 이미지 */
+  heroImage?: string;
   /** 시공 전/후 비교 슬라이더용 이미지 (둘 다 있을 때만 슬라이더 표시) */
   beforeImage?: string;
   afterImage?: string;
@@ -199,6 +201,7 @@ export const subServicePages: SubServicePage[] = [
       { title: "줄눈이 시커멓게 오염돼 지저분해요", desc: "오염 줄눈 제거 후 깨끗한 색으로 새로 시공" },
       { title: "부분 보수가 너무 티가 날까 걱정돼요", desc: "주변 대리석 톤에 맞춰 자연스럽게 마감" },
     ],
+    heroImage: "/images/stone-grout-hero.jpg",
     beforeImage: "/images/stone-grout-before.jpg",
     afterImage: "/images/stone-grout-after.jpg",
   },
@@ -212,6 +215,7 @@ export const subServicePages: SubServicePage[] = [
       { title: "사람이 많이 다녀 통로만 닳아 얼룩져요", desc: "바닥 전체 균일 연마로 광택 차이 제거" },
       { title: "왁스칠은 금방 벗겨져 다시 흐려져요", desc: "왁스가 아닌 대리석 자체 연마로 광택 오래 유지" },
     ],
+    heroImage: "/images/stone-polish-hero.jpg",
     beforeImage: "/images/stone-polish-before.jpg",
     afterImage: "/images/stone-polish-after.jpg",
   },
@@ -225,6 +229,7 @@ export const subServicePages: SubServicePage[] = [
       { title: "들뜨고 균열이 생겨 점점 커져요", desc: "손상 부위 보강 후 주변과 단차 없이 복구" },
       { title: "부분 보수 자국이 너무 티가 나요", desc: "주변과 동일하게 연마·광택해 자연스럽게 마감" },
     ],
+    heroImage: "/images/stone-repair-hero.jpg",
     beforeImage: "/images/stone-repair-before.jpg",
     afterImage: "/images/stone-repair-after.jpg",
   },
