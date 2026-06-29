@@ -36,6 +36,14 @@
   - before/after 두 장 모두 있어야 슬라이더가 나타납니다. 하나라도 없으면 기존 회색 placeholder가 보입니다.
   - 같은 각도·같은 구도로 찍은 사진일수록 비교가 자연스럽습니다. 가로형 4:3 비율 권장.
 
+[서비스 상세 페이지 히어로 배경 이미지 - 석재보수/에어컨 공통]
+  stone-grout-hero.jpg / stone-polish-hero.jpg / stone-repair-hero.jpg
+  aircon-wash-hero.jpg / aircon-install-hero.jpg / aircon-repair-hero.jpg
+  - 없으면 회색 "시공 이미지 준비 중" placeholder가 보입니다.
+
+[에어컨 설치 시공 전/후 비교 슬라이더]
+  aircon-install-before.jpg / aircon-install-after.jpg
+
 참고
 - 확장자는 .jpg 기준입니다. 다른 확장자를 쓰려면
   lib/data.ts 의 경로(예: "/images/video-main.jpg")만 바꾸면 됩니다.

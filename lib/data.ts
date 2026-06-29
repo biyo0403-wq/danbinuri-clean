@@ -167,6 +167,7 @@ export const subServicePages: SubServicePage[] = [
       { title: "청소를 맡겼는데 냄새가 또 나요", desc: "표면만 닦는 청소는 한계, 분해 후 내부까지 살균" },
       { title: "가족이 에어컨 바람에 기침·알레르기를 해요", desc: "세균·곰팡이 포자 완전 제거로 안전한 실내 공기" },
     ],
+    heroImage: "/images/aircon-wash-hero.jpg",
   },
   {
     category: "aircon", slug: "install", navLabel: "에어컨 설치",
@@ -178,6 +179,9 @@ export const subServicePages: SubServicePage[] = [
       { title: "이전 중 냉매가 새거나 고장날까 봐요", desc: "냉매 회수 후 재충전, 전문 장비로 안전하게 이전" },
       { title: "전기·배관·벽 마감이 지저분할까 불안해요", desc: "유자격 전기·냉동기사 투입, 최소 시공으로 깔끔 마감" },
     ],
+    heroImage: "/images/aircon-install-hero.jpg",
+    beforeImage: "/images/aircon-install-before.jpg",
+    afterImage: "/images/aircon-install-after.jpg",
   },
   {
     category: "aircon", slug: "repair", navLabel: "보수·점검",
@@ -189,6 +193,7 @@ export const subServicePages: SubServicePage[] = [
       { title: "냉방은 되는데 효율이 많이 떨어졌어요", desc: "냉매·필터·센서 정밀 점검 후 수리" },
       { title: "수리비가 얼마나 나올지 몰라 불안해요", desc: "진단 후 견적 먼저, 동의 후 수리 진행" },
     ],
+    heroImage: "/images/aircon-repair-hero.jpg",
   },
   // ── 석재보수 ──
   {
