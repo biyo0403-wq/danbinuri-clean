@@ -29,6 +29,13 @@
 [함께하는 브랜드 4개]
   brand-1.jpg ~ brand-4.jpg
 
+[석재보수 시공 전/후 비교 슬라이더 - 각 서비스 상세 페이지의 About 옆 영역]
+  stone-grout-before.jpg / stone-grout-after.jpg   (대리석 줄눈 시공)
+  stone-polish-before.jpg / stone-polish-after.jpg (대리석 연마 광택)
+  stone-repair-before.jpg / stone-repair-after.jpg (대리석 보수)
+  - before/after 두 장 모두 있어야 슬라이더가 나타납니다. 하나라도 없으면 기존 회색 placeholder가 보입니다.
+  - 같은 각도·같은 구도로 찍은 사진일수록 비교가 자연스럽습니다. 가로형 4:3 비율 권장.
+
 참고
 - 확장자는 .jpg 기준입니다. 다른 확장자를 쓰려면
   lib/data.ts 의 경로(예: "/images/video-main.jpg")만 바꾸면 됩니다.

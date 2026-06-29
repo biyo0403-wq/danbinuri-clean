@@ -4,6 +4,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import FloatingCTA from "@/components/ui/FloatingCTA";
 import Container from "@/components/ui/Container";
+import BeforeAfterSlider from "@/components/ui/BeforeAfterSlider";
 import {
   subServicePages,
   servicePages,
@@ -195,9 +196,17 @@ export default function SubServicePage({
                   {sub.intro}
                 </p>
               </div>
-              <div className="rounded-2xl bg-slate-200 aspect-[4/3] flex items-center justify-center">
-                <span className="text-slate-400 text-sm">시공 이미지 준비 중</span>
-              </div>
+              {sub.beforeImage && sub.afterImage ? (
+                <BeforeAfterSlider
+                  beforeImage={sub.beforeImage}
+                  afterImage={sub.afterImage}
+                  className="aspect-[4/3]"
+                />
+              ) : (
+                <div className="rounded-2xl bg-slate-200 aspect-[4/3] flex items-center justify-center">
+                  <span className="text-slate-400 text-sm">시공 이미지 준비 중</span>
+                </div>
+              )}
             </div>
           </Container>
         </section>
