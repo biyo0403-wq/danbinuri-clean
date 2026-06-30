@@ -139,6 +139,25 @@ export const serviceSolutions: Record<string, ServiceFeature[]> = {
   ],
 };
 
+// ── 시공 진행 과정 (사진+번호 카드형) — 카테고리별로 있을 때만 표시, 없으면 기존 4단계 아이콘형으로 대체 ──
+export interface ProcessStep {
+  image: string;
+  label: string;
+}
+
+export const serviceProcess: Record<string, ProcessStep[]> = {
+  aircon: [
+    { image: "/images/aircon-process-1.jpg", label: "기기 작동 및 고장진단" },
+    { image: "/images/aircon-process-2.jpg", label: "실내기 완전 분해" },
+    { image: "/images/aircon-process-3.jpg", label: "열교환기 고압세척" },
+    { image: "/images/aircon-process-4.jpg", label: "부품 세척" },
+    { image: "/images/aircon-process-5.jpg", label: "건조 작업" },
+    { image: "/images/aircon-process-6.jpg", label: "실내기 재조립" },
+    { image: "/images/aircon-process-7.jpg", label: "실외기 사이클 진단·점검" },
+    { image: "/images/aircon-process-8.jpg", label: "작동 테스트 및 최종점검" },
+  ],
+};
+
 // ── 서비스 세부 페이지 (25개) ──
 export interface SubServicePage {
   category: string;

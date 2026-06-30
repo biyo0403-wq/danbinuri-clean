@@ -10,6 +10,7 @@ import {
   servicePages,
   serviceReasons,
   serviceSolutions,
+  serviceProcess,
   siteConfig,
 } from "@/lib/data";
 import {
@@ -63,6 +64,7 @@ export default function SubServicePage({
   const siblings = subServicePages.filter((s) => s.category === params.slug);
   const reasons = serviceReasons[params.slug] ?? [];
   const solutions = serviceSolutions[params.slug] ?? [];
+  const detailedProcess = serviceProcess[params.slug];
 
   return (
     <>
@@ -297,26 +299,50 @@ export default function SubServicePage({
                 시공 진행 과정
               </h2>
             </div>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {processSteps.map((step, i) => {
-                const Icon = step.icon;
-                return (
-                  <div key={i} className="relative text-center">
-                    {i < processSteps.length - 1 && (
-                      <div className="hidden lg:block absolute top-9 left-[calc(50%+2.5rem)] w-[calc(100%-5rem)] h-px bg-slate-300" />
-                    )}
-                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-100 text-blue-700 mb-4 relative z-10">
-                      <Icon className="w-7 h-7" />
+            {detailedProcess ? (
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
+                {detailedProcess.map((step, i) => (
+                  <div
+                    key={i}
+                    className="rounded-xl overflow-hidden bg-white border border-slate-200 shadow-sm"
+                  >
+                    <div className="relative aspect-[4/3] bg-slate-100">
+                      <div
+                        className="absolute inset-0 bg-cover bg-center"
+                        style={{ backgroundImage: `url(${step.image})` }}
+                      />
                     </div>
-                    <div className="absolute top-0 right-[calc(50%-2.5rem)] w-5 h-5 rounded-full bg-blue-700 text-white text-xs font-bold flex items-center justify-center">
-                      {i + 1}
+                    <div className="p-5">
+                      <span className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-blue-600 text-white font-bold text-sm">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <p className="mt-3 font-bold text-slate-900">{step.label}</p>
                     </div>
-                    <h3 className="font-bold text-slate-900">{step.label}</h3>
-                    <p className="mt-1 text-sm text-slate-500">{step.desc}</p>
                   </div>
-                );
-              })}
-            </div>
+                ))}
+              </div>
+            ) : (
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                {processSteps.map((step, i) => {
+                  const Icon = step.icon;
+                  return (
+                    <div key={i} className="relative text-center">
+                      {i < processSteps.length - 1 && (
+                        <div className="hidden lg:block absolute top-9 left-[calc(50%+2.5rem)] w-[calc(100%-5rem)] h-px bg-slate-300" />
+                      )}
+                      <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-100 text-blue-700 mb-4 relative z-10">
+                        <Icon className="w-7 h-7" />
+                      </div>
+                      <div className="absolute top-0 right-[calc(50%-2.5rem)] w-5 h-5 rounded-full bg-blue-700 text-white text-xs font-bold flex items-center justify-center">
+                        {i + 1}
+                      </div>
+                      <h3 className="font-bold text-slate-900">{step.label}</h3>
+                      <p className="mt-1 text-sm text-slate-500">{step.desc}</p>
+                    </div>
+                  );
+                })}
+              </div>
+            )}
           </Container>
         </section>
 
