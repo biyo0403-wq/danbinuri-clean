@@ -1,18 +1,3 @@
-import type { LucideIcon } from "lucide-react";
-import {
-  Sparkles,
-  ShieldCheck,
-  Snowflake,
-  Award,
-  Tv,
-  Trophy,
-  BadgeCheck,
-  Layers,
-  PhoneCall,
-  CalendarCheck,
-  MessageSquare,
-} from "lucide-react";
-
 // ── 사이트 공통 정보 (실제 회사 고유정보 아님 / 임시값) ──
 export const siteConfig = {
   name: "단비누리",
@@ -64,50 +49,12 @@ export interface ServiceFeature {
 export interface ServicePageData {
   slug: string;
   navLabel: string;
-  fullTitle: string;
   tag: string;
-  heroDesc: string;
-  longDesc: string;
-  items: string[];
-  gradient: string;
-  features: ServiceFeature[];
 }
 
 export const servicePages: ServicePageData[] = [
-  {
-    slug: "aircon",
-    navLabel: "에어컨",
-    fullTitle: "에어컨 살균세척·설치",
-    tag: "Air Conditioning",
-    heroDesc: "분해 살균세척으로 냄새와 곰팡이를 완전히 제거합니다.",
-    longDesc:
-      "에어컨 내부에 쌓인 곰팡이·세균·먼지는 공기 오염의 주범입니다. 단비누리는 필터부터 열교환기까지 완전 분해 후 전문 약품으로 살균세척하여 깨끗하고 쾌적한 공기를 되찾아 드립니다.",
-    items: ["에어컨 살균세척", "에어컨 설치", "보수·점검"],
-    gradient: "linear-gradient(135deg, #0369a1 0%, #0ea5e9 100%)",
-    features: [
-      { title: "완전 분해 세척", desc: "필터·열교환기·팬까지 분해 후 전문 약품으로 살균" },
-      { title: "곰팡이·세균 제거", desc: "검증된 살균 공정으로 위생적인 환경 조성" },
-      { title: "설치 전문팀 보유", desc: "가정·사무실·공장 등 모든 환경 설치 가능" },
-      { title: "AS 보장", desc: "시공 후 이상 발생 시 신속한 사후 처리" },
-    ],
-  },
-  {
-    slug: "stone",
-    navLabel: "석재보수",
-    fullTitle: "석재보수",
-    tag: "Stone Care",
-    heroDesc: "줄눈·연마·보수까지, 대리석을 새것처럼 되살립니다.",
-    longDesc:
-      "대리석 바닥은 관리 여하에 따라 수명과 품격이 크게 달라집니다. 단비누리는 줄눈 시공·연마 광택·보수 기술로 손상되고 흐려진 대리석을 본래의 깊은 광택과 평탄함으로 복원합니다.",
-    items: ["대리석 줄눈 시공", "대리석 연마 광택", "대리석 보수"],
-    gradient: "linear-gradient(135deg, #292524 0%, #78716c 100%)",
-    features: [
-      { title: "줄눈 방수·미관 복원", desc: "벌어지고 오염된 줄눈을 전용 재료로 재시공" },
-      { title: "거울 같은 광택 복원", desc: "다이아몬드 패드 단계별 연마로 깊은 광택 구현" },
-      { title: "손상 부위 원상 복구", desc: "깨짐·파임·균열을 전용 충전재로 메운 뒤 평탄 연마" },
-      { title: "대리석 전문 기술력", desc: "10년 이상 대리석 시공 경력 보유팀" },
-    ],
-  },
+  { slug: "aircon", navLabel: "에어컨", tag: "Air Conditioning" },
+  { slug: "stone", navLabel: "석재보수", tag: "Stone Care" },
 ];
 
 // ── 서비스별 공통 이유 4개 (세부 페이지 공유) ──
@@ -158,7 +105,7 @@ export const serviceProcess: Record<string, ProcessStep[]> = {
   ],
 };
 
-// ── 서비스 세부 페이지 (25개) ──
+// ── 서비스 세부 페이지 ──
 export interface SubServicePage {
   category: string;
   slug: string;
@@ -259,47 +206,7 @@ export const subServicePages: SubServicePage[] = [
   },
 ];
 
-// ── 메가메뉴: 서비스 4개 카테고리 ──
-export interface MenuCategory {
-  label: string;
-  items: string[];
-}
-
-export const serviceMenu: MenuCategory[] = [
-  {
-    label: "석재보수",
-    items: ["대리석 줄눈 시공", "대리석 연마 광택", "대리석 보수"],
-  },
-  {
-    label: "에어컨 살균세척·설치",
-    items: ["에어컨 살균세척", "에어컨 설치", "보수·점검"],
-  },
-];
-
-// ── 서비스 상세 (#services 섹션) ──
-export interface ServiceDetail {
-  icon: LucideIcon;
-  title: string;
-  desc: string;
-  items: string[];
-}
-
-export const serviceDetails: ServiceDetail[] = [
-  {
-    icon: Snowflake,
-    title: "에어컨 살균세척·설치",
-    desc: "분해 살균세척으로 냄새와 곰팡이를 제거하고, 설치·보수·점검까지 책임집니다.",
-    items: ["에어컨 살균세척", "에어컨 설치", "보수·점검"],
-  },
-  {
-    icon: Layers,
-    title: "석재보수",
-    desc: "줄눈 시공·연마 광택·보수로 손상된 대리석을 새것 같은 표면으로 복원합니다.",
-    items: ["대리석 줄눈 시공", "대리석 연마 광택", "대리석 보수"],
-  },
-];
-
-// ── 히어로 슬라이더 (6칸) ──
+// ── 히어로 슬라이더 ──
 export interface HeroSlide {
   tag: string;
   heading: string;
@@ -363,44 +270,7 @@ export const brandStory = {
   ],
 };
 
-// ── 히어로 CTA ──
-export const heroCtas = [
-  { href: "#reserve", label: "온라인 예약", primary: true },
-  { href: "#quote", label: "간편 견적 신청", primary: false },
-];
-
-// ── 커뮤니티 안내 카드 ──
-export interface CommunityCard {
-  title: string;
-  desc: string;
-  image: string;
-}
-
-export const communityCards: CommunityCard[] = [
-  { title: "블로그", desc: "청소 노하우와 시공 후기를 확인하세요.", image: "/images/community-blog.jpg" },
-  { title: "이벤트 · 프로모션", desc: "진행 중인 할인과 혜택을 모았습니다.", image: "/images/community-event.jpg" },
-  { title: "자주 묻는 질문", desc: "예약 전 궁금한 점을 빠르게 해결하세요.", image: "/images/community-faq.jpg" },
-];
-
-// ── 유튜브 섹션 (영상 자리) ──
-export interface VideoItem {
-  title: string;
-  image: string;
-}
-
-export const mainVideo: VideoItem = { title: "브랜드 소개 영상", image: "/images/video-main.jpg" };
-export const subVideos: VideoItem[] = [
-  { title: "협찬 영상 1", image: "/images/video-1.jpg" },
-  { title: "협찬 영상 2", image: "/images/video-2.jpg" },
-  { title: "협찬 영상 3", image: "/images/video-3.jpg" },
-];
-
-// ── 뉴스 & 정보 (공지 + 인증 탭) ──
-export const notices = [
-  { date: "2026.06.10", title: "여름철 에어컨 청소 사전 예약 안내" },
-  { date: "2026.05.28", title: "장마철 곰팡이 제거 시공 프로모션 안내" },
-];
-
+// ── 뉴스 & 정보 (인증 탭) ──
 export interface CertBadge {
   label: string;
   image: string;
@@ -410,96 +280,6 @@ export const certBadges: CertBadge[] = [
   { label: "중소기업 확인", image: "/images/cert-sme.jpg" },
   { label: "창업기업 확인", image: "/images/cert-startup.jpg" },
   { label: "여성기업 확인", image: "/images/cert-women.jpg" },
-];
-
-// ── 실적 / 인증 아이콘 ──
-export interface Achievement {
-  icon: LucideIcon;
-  label: string;
-}
-
-export const achievements: Achievement[] = [
-  { icon: BadgeCheck, label: "주요 기관·기업 시공" },
-  { icon: Tv, label: "방송 출연" },
-  { icon: Trophy, label: "수상 이력" },
-  { icon: Award, label: "중소기업 인증" },
-  { icon: ShieldCheck, label: "품질 보증" },
-];
-
-// ── 고객 후기 ──
-export interface BestReview {
-  title: string;
-  image: string;
-}
-
-export const bestReviews: BestReview[] = Array.from({ length: 9 }, (_, i) => ({
-  title: `베스트 후기 ${i + 1}`,
-  image: `/images/review-${i + 1}.jpg`,
-}));
-
-export const liveReviews = [
-  { name: "김○○", service: "대리석 보수", text: "깨지고 파였던 현관 바닥이 감쪽같이 복구됐습니다." },
-  { name: "이○○", service: "에어컨 살균세척", text: "분해세척 후 냉방이 확실히 시원해졌어요." },
-  { name: "박○○", service: "대리석 연마 광택", text: "흐려졌던 로비 바닥이 거울처럼 광이 살아났어요." },
-  { name: "최○○", service: "에어컨 설치", text: "이사하면서 재설치했는데 성능 그대로네요." },
-  { name: "정○○", service: "에어컨 살균세척", text: "장마철 묵은 곰팡이 냄새가 싹 사라졌습니다." },
-];
-
-// ── 통계 데이터 ──
-export interface TeamStat {
-  label: string;
-  value: string;
-}
-
-export const teamStats: TeamStat[] = [
-  { label: "전문청소팀", value: "80팀+" },
-  { label: "시공팀", value: "30팀+" },
-  { label: "가전청소팀", value: "40팀+" },
-  { label: "석재보수팀", value: "20팀+" },
-];
-
-export const totalCustomers = "120,000+";
-export const satisfaction = 97;
-
-// ── 기업철학 & 브랜드 가치 ──
-export interface Philosophy {
-  icon: LucideIcon;
-  title: string;
-  desc: string;
-}
-
-export const philosophies: Philosophy[] = [
-  {
-    icon: ShieldCheck,
-    title: "운영 철학",
-    desc: "표준화된 매뉴얼과 검증된 전문 인력으로 어디서나 균일한 품질을 제공합니다.",
-  },
-  {
-    icon: Sparkles,
-    title: "브랜드 가치",
-    desc: "정직한 견적과 책임 시공, 그리고 철저한 사후관리로 신뢰를 쌓습니다.",
-  },
-];
-
-// ── 비용효과 비교 (그래프 값, 임시) ──
-export const costCompare = [
-  { label: "일반 플랫폼", value: 100, highlight: false },
-  { label: "클린마스터", value: 72, highlight: true },
-];
-
-// ── 3가지 문의 옵션 ──
-export interface InquiryOption {
-  icon: LucideIcon;
-  title: string;
-  desc: string;
-  cta: string;
-  href: string;
-}
-
-export const inquiryOptions: InquiryOption[] = [
-  { icon: PhoneCall, title: "간편 견적", desc: "간단한 정보만 남기면 빠르게 견적을 안내합니다.", cta: "견적 신청", href: "#quote" },
-  { icon: CalendarCheck, title: "온라인 예약", desc: "원하는 날짜와 서비스를 직접 선택해 예약하세요.", cta: "예약하기", href: "#quote" },
-  { icon: MessageSquare, title: "전화 상담", desc: "급하시면 전화로 바로 문의하세요.", cta: "전화하기", href: "tel:1600-0000" },
 ];
 
 // ── 서비스 브랜드 소개 ──
@@ -513,10 +293,4 @@ export const brands: BrandItem[] = [
   { name: "의류몰", desc: "단체복·유니폼·작업복 전문 쇼핑몰", image: "/images/brand-1.jpg" },
   { name: "사무용품몰", desc: "사무용품·소모품 전문 쇼핑몰", image: "/images/brand-2.jpg" },
   { name: "산업용품몰", desc: "산업·안전용품 전문 쇼핑몰", image: "/images/brand-3.jpg" },
-];
-
-// ── 대표 서비스 카테고리 아이콘 (Hero 바로가기 4개) ──
-export const featuredIcons: { icon: LucideIcon; label: string }[] = [
-  { icon: Snowflake, label: "에어컨 살균·설치" },
-  { icon: Layers, label: "석재보수" },
 ];
