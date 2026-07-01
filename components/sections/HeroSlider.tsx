@@ -80,7 +80,7 @@ export default function HeroSlider() {
                     {slide.sub}
                   </p>
                   <a
-                    href="#quote"
+                    href="/inquiry"
                     className="mt-8 inline-flex items-center px-8 py-3.5 rounded-md bg-white text-slate-900 font-bold text-sm hover:bg-white/90 transition-colors"
                   >
                     {slide.cta}

@@ -127,9 +127,7 @@ export default function SubServicePage({
                       상담 문의하기
                     </a>
                     <a
-                      href={siteConfig.quoteFormUrl || "#quote"}
-                      target={siteConfig.quoteFormUrl ? "_blank" : undefined}
-                      rel={siteConfig.quoteFormUrl ? "noopener noreferrer" : undefined}
+                      href="/inquiry"
                       className="rounded-full border border-white/40 text-white px-7 py-3 font-bold text-sm hover:bg-white/10 transition-colors"
                     >
                       지금 예약하기
@@ -363,9 +361,7 @@ export default function SubServicePage({
                 {siteConfig.phone} 전화 상담
               </a>
               <a
-                href={siteConfig.quoteFormUrl || "#quote"}
-                target={siteConfig.quoteFormUrl ? "_blank" : undefined}
-                rel={siteConfig.quoteFormUrl ? "noopener noreferrer" : undefined}
+                href="/inquiry"
                 className="inline-flex items-center px-8 py-3.5 rounded-md border border-white/30 text-white font-bold hover:bg-white/10 transition-colors"
               >
                 온라인 견적 신청

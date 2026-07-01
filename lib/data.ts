@@ -12,10 +12,10 @@ export const siteConfig = {
   copyright: "© 2026 단비누리. All rights reserved.",
   // 견적 문의가 접수될 이메일 (사이트 자체 폼 사용 시)
   quoteEmail: "danbinuri25@naver.com",
-  // 구글폼을 만들면 여기에 임베드(iframe) 주소나 /viewform 링크를 넣으세요.
-  // 값이 있으면 사이트 폼 대신 구글폼이 자동으로 표시됩니다. (비워두면 사이트 자체 폼 사용)
-  quoteFormUrl:
-    "https://docs.google.com/forms/d/e/1FAIpQLScAOM7_P70-Q5li8ovpTHFghZteJ4xemZzZpjW0BhA6iQQJtw/viewform?embedded=true",
+  // 견적 문의는 사이트 자체 페이지(/inquiry)로 연결됩니다.
+  // (구글폼으로 되돌리려면 아래 주석의 주소를 quoteFormUrl 값에 넣으세요.)
+  // "https://docs.google.com/forms/d/e/1FAIpQLScAOM7_P70-Q5li8ovpTHFghZteJ4xemZzZpjW0BhA6iQQJtw/viewform?embedded=true"
+  quoteFormUrl: "",
 };
 
 // 상단 유틸 바 - 패밀리 사이트
@@ -23,9 +23,8 @@ export const familySites = ["의류몰", "사무용품몰", "산업용품몰"];
 
 // 헤더 우측 간단 메뉴
 export const utilNav = [
-  { href: "#pricing", label: "가격안내" },
-  { href: "#inquiry", label: "견적문의" },
-  { href: "#support", label: "고객지원" },
+  { href: "/inquiry", label: "견적문의" },
+  { href: "/qna", label: "고객지원" },
 ];
 
 // ── 헤더 메인 네비게이션 (표시 순서대로) ──
@@ -38,6 +37,8 @@ export const mainNav: NavItem[] = [
   { label: "회사소개", href: "/" },
   { label: "에어컨", href: "/services/aircon" },
   { label: "석재보수", href: "/services/stone" },
+  { label: "시공사례", href: "/cases" },
+  { label: "고객문의", href: "/qna" },
 ];
 
 // ── 서비스 전용 페이지 데이터 ──
@@ -293,4 +294,106 @@ export const brands: BrandItem[] = [
   { name: "의류몰", desc: "단체복·유니폼·작업복 전문 쇼핑몰", image: "/images/brand-1.jpg" },
   { name: "사무용품몰", desc: "사무용품·소모품 전문 쇼핑몰", image: "/images/brand-2.jpg" },
   { name: "산업용품몰", desc: "산업·안전용품 전문 쇼핑몰", image: "/images/brand-3.jpg" },
+];
+
+// ── 견적문의 폼: 서비스 선택 항목 ──
+export const inquiryServices = [
+  "에어컨 살균세척",
+  "에어컨 설치",
+  "에어컨 보수·점검",
+  "대리석 줄눈 시공",
+  "대리석 연마 광택",
+  "대리석 보수",
+  "기타 문의",
+];
+
+// ── 자주 묻는 질문 (FAQ) ──
+export interface FaqItem {
+  category: string;
+  q: string;
+  a: string;
+}
+
+export const faqs: FaqItem[] = [
+  {
+    category: "에어컨",
+    q: "에어컨 살균세척은 얼마나 자주 하는 게 좋나요?",
+    a: "가정용은 사용이 많은 여름철 전 연 1회, 사무실·상가처럼 가동 시간이 긴 곳은 연 2회를 권장합니다. 곰팡이·냄새가 이미 있다면 계절과 관계없이 세척을 권합니다.",
+  },
+  {
+    category: "에어컨",
+    q: "세척 시간은 얼마나 걸리나요?",
+    a: "벽걸이형 1대 기준 약 1~1.5시간, 스탠드형·천장형(시스템)은 구조상 2시간 이상 소요될 수 있습니다. 대수와 오염도에 따라 달라집니다.",
+  },
+  {
+    category: "에어컨",
+    q: "청소를 맡겼는데 냄새가 또 나요. 뭐가 다른가요?",
+    a: "표면만 닦는 청소와 달리, 단비누리는 필터·열교환기·송풍팬까지 완전 분해 후 전문 살균제로 세척합니다. 냄새의 원인인 내부 곰팡이까지 제거해 재발이 크게 줄어듭니다.",
+  },
+  {
+    category: "석재보수",
+    q: "연마·광택 작업 중에도 매장이나 사무실을 이용할 수 있나요?",
+    a: "구역을 나눠 시공해 영업·업무에 지장이 최소화되도록 협의해 드립니다. 야간·주말 시공도 상담 가능합니다.",
+  },
+  {
+    category: "석재보수",
+    q: "대리석 광택은 얼마나 유지되나요?",
+    a: "쉽게 벗겨지는 왁스칠이 아니라 대리석 자체를 단계별로 연마하는 방식이라 광택이 오래 유지됩니다. 통행량이 많은 곳은 주기적 관리 시공을 안내드립니다.",
+  },
+  {
+    category: "석재보수",
+    q: "깨지거나 파인 부분만 부분 보수도 되나요?",
+    a: "네, 손상 부위만 전용 충전재로 메운 뒤 주변과 자연스럽게 연마·광택해 티가 나지 않게 복구합니다.",
+  },
+  {
+    category: "공통",
+    q: "견적 비용은 어떻게 확인하나요?",
+    a: "전화 또는 견적문의 페이지에 현장 정보를 남겨주시면 유선 또는 방문 견적을 안내해 드립니다. 진단 후 견적에 동의하시면 시공을 진행합니다.",
+  },
+  {
+    category: "공통",
+    q: "시공 후 AS(사후관리)가 되나요?",
+    a: "시공 항목별로 사후 점검과 보증을 제공합니다. 이상이 발생하면 신속하게 조치해 드립니다.",
+  },
+  {
+    category: "공통",
+    q: "어느 지역까지 출장 가능한가요?",
+    a: "서울·수도권을 중심으로 시공하며, 그 외 지역은 문의 시 일정과 함께 안내해 드립니다.",
+  },
+];
+
+// ── Q&A 게시판 (샘플 데이터 / 백엔드 연동 전 표시용) ──
+export interface QnaPost {
+  id: number;
+  title: string;
+  author: string;
+  date: string;
+  answered: boolean;
+}
+
+export const qnaPosts: QnaPost[] = [
+  { id: 4, title: "천장형 시스템 에어컨도 살균세척 가능한가요?", author: "김**", date: "2026.06.22", answered: true },
+  { id: 3, title: "사무실 대리석 로비 연마 견적 문의드립니다", author: "이**", date: "2026.06.18", answered: true },
+  { id: 2, title: "에어컨 이전 설치 비용이 궁금합니다", author: "박**", date: "2026.06.11", answered: false },
+  { id: 1, title: "현관 대리석 깨진 부분 보수 되나요?", author: "정**", date: "2026.06.03", answered: true },
+];
+
+// ── 시공사례 (에어컨 / 석재보수) ──
+export interface CaseItem {
+  title: string;
+  location: string;
+  desc: string;
+  image: string;
+}
+
+export const airconCases: CaseItem[] = [
+  { title: "사무실 시스템에어컨 살균세척", location: "서울 강남구", desc: "천장형 4way 6대 완전 분해 살균세척", image: "/images/case-aircon-1.jpg" },
+  { title: "가정용 벽걸이·스탠드 세척", location: "경기 성남시", desc: "여름철 사용 전 곰팡이·냄새 완전 제거", image: "/images/case-aircon-2.jpg" },
+  { title: "상가 에어컨 신규 설치", location: "서울 송파구", desc: "매장 규모에 맞춘 용량 산정 후 설치", image: "/images/case-aircon-3.jpg" },
+];
+
+export const stoneCases: CaseItem[] = [
+  { title: "호텔 로비 대리석 연마 광택", location: "서울 중구", desc: "통행량 많은 로비 바닥 전체 균일 연마", image: "/images/case-stone-1.jpg" },
+  { title: "아파트 현관 줄눈 재시공", location: "경기 용인시", desc: "벌어진 줄눈 제거 후 방수·미관 복원", image: "/images/case-stone-2.jpg" },
+  { title: "매장 대리석 파손 보수", location: "서울 서초구", desc: "깨짐·파임 부위 충전재 보수 후 광택", image: "/images/case-stone-3.jpg" },
 ];

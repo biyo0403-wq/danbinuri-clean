@@ -13,9 +13,7 @@ export default function FloatingCTA() {
         <span className="text-sm font-bold">전화 상담</span>
       </a>
       <a
-        href={siteConfig.quoteFormUrl || "#quote"}
-        target={siteConfig.quoteFormUrl ? "_blank" : undefined}
-        rel={siteConfig.quoteFormUrl ? "noopener noreferrer" : undefined}
+        href="/inquiry"
         className="flex items-center gap-2 rounded-full bg-orange-500 text-white shadow-lg hover:bg-orange-600 transition-colors pl-4 pr-5 py-3"
         aria-label="상담 문의"
       >
