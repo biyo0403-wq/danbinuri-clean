@@ -6,51 +6,86 @@ import { inquiryServices, siteConfig } from "@/lib/data";
 const inputClass =
   "w-full rounded-lg border border-slate-300 px-4 py-3 text-slate-800 placeholder:text-slate-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-100 transition";
 
-export default function InquiryForm() {
-  const [submitted, setSubmitted] = useState(false);
+type Status = "idle" | "loading" | "success" | "error";
 
-  function handleSubmit(e: React.FormEvent) {
+export default function InquiryForm() {
+  const [status, setStatus] = useState<Status>("idle");
+  const [errorMsg, setErrorMsg] = useState("");
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    // TODO: Resend 연동 후 실제 이메일 발송 처리 (현재는 UI만)
-    setSubmitted(true);
+    const form = e.currentTarget;
+    const payload = Object.fromEntries(new FormData(form).entries());
+
+    setStatus("loading");
+    setErrorMsg("");
+    try {
+      const res = await fetch("/api/inquiry", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.error || "접수에 실패했습니다.");
+      }
+      setStatus("success");
+      form.reset();
+    } catch (err) {
+      setStatus("error");
+      setErrorMsg(err instanceof Error ? err.message : "접수에 실패했습니다.");
+    }
+  }
+
+  if (status === "success") {
+    return (
+      <div className="rounded-lg bg-green-50 border border-green-200 px-5 py-8 text-center">
+        <p className="text-lg font-bold text-green-800">견적 문의가 접수되었습니다.</p>
+        <p className="mt-2 text-sm text-green-700">
+          담당자가 확인 후 빠르게 연락드리겠습니다. 급하시면{" "}
+          <a href={`tel:${siteConfig.phone}`} className="font-bold underline">
+            {siteConfig.phone}
+          </a>{" "}
+          로 문의해 주세요.
+        </p>
+        <button
+          type="button"
+          onClick={() => setStatus("idle")}
+          className="mt-5 rounded-lg border border-green-300 bg-white px-5 py-2.5 text-sm font-bold text-green-700 hover:bg-green-50 transition-colors"
+        >
+          추가 문의하기
+        </button>
+      </div>
+    );
   }
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
-      {/* 안내 배너 */}
-      <div className="rounded-lg bg-blue-50 border border-blue-100 px-4 py-3 text-sm text-blue-800">
-        온라인 접수 기능은 준비 중입니다. 급하신 분은{" "}
-        <a href={`tel:${siteConfig.phone}`} className="font-bold underline">
-          {siteConfig.phone}
-        </a>{" "}
-        로 문의해 주세요.
-      </div>
-
       <div className="grid sm:grid-cols-2 gap-5">
         <div>
           <label className="block text-sm font-semibold text-slate-700 mb-1.5">
             이름 <span className="text-orange-500">*</span>
           </label>
-          <input type="text" required placeholder="성함을 입력해 주세요" className={inputClass} />
+          <input name="name" type="text" required placeholder="성함을 입력해 주세요" className={inputClass} />
         </div>
         <div>
           <label className="block text-sm font-semibold text-slate-700 mb-1.5">
             연락처 <span className="text-orange-500">*</span>
           </label>
-          <input type="tel" required placeholder="010-0000-0000" className={inputClass} />
+          <input name="phone" type="tel" required placeholder="010-0000-0000" className={inputClass} />
         </div>
       </div>
 
       <div>
         <label className="block text-sm font-semibold text-slate-700 mb-1.5">이메일</label>
-        <input type="email" placeholder="example@email.com (선택)" className={inputClass} />
+        <input name="email" type="email" placeholder="example@email.com (선택)" className={inputClass} />
       </div>
 
       <div>
         <label className="block text-sm font-semibold text-slate-700 mb-1.5">
           문의 서비스 <span className="text-orange-500">*</span>
         </label>
-        <select required defaultValue="" className={inputClass}>
+        <select name="service" required defaultValue="" className={inputClass}>
           <option value="" disabled>
             서비스를 선택해 주세요
           </option>
@@ -67,6 +102,7 @@ export default function InquiryForm() {
           문의 내용 <span className="text-orange-500">*</span>
         </label>
         <textarea
+          name="message"
           required
           rows={5}
           placeholder="현장 위치, 규모, 원하시는 일정 등을 남겨주시면 더 정확한 견적을 안내해 드립니다."
@@ -84,21 +120,18 @@ export default function InquiryForm() {
         </span>
       </label>
 
-      {submitted && (
-        <div className="rounded-lg bg-green-50 border border-green-200 px-4 py-3 text-sm text-green-800">
-          문의 접수 기능은 곧 오픈됩니다. 지금은 전화{" "}
-          <a href={`tel:${siteConfig.phone}`} className="font-bold underline">
-            {siteConfig.phone}
-          </a>{" "}
-          로 빠르게 상담받으실 수 있어요.
+      {status === "error" && (
+        <div className="rounded-lg bg-red-50 border border-red-200 px-4 py-3 text-sm text-red-700">
+          {errorMsg}
         </div>
       )}
 
       <button
         type="submit"
-        className="w-full rounded-lg bg-blue-600 text-white font-bold py-3.5 hover:bg-blue-700 transition-colors"
+        disabled={status === "loading"}
+        className="w-full rounded-lg bg-blue-600 text-white font-bold py-3.5 hover:bg-blue-700 transition-colors disabled:opacity-60"
       >
-        견적 문의하기
+        {status === "loading" ? "접수 중…" : "견적 문의하기"}
       </button>
     </form>
   );
