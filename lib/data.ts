@@ -8,7 +8,6 @@ export const siteConfig = {
   ceo: "이영기",
   address: "서울특별시 서초구 논현로11길 49, 2층 (양재동)",
   businessNumber: "490-81-03515",
-  mailOrderNumber: "제2026-서울-00000호",
   copyright: "© 2026 단비누리. All rights reserved.",
   // 견적 문의가 접수될 이메일 (사이트 자체 폼 사용 시)
   quoteEmail: "danbinuri25@naver.com",

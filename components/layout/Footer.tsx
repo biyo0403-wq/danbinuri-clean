@@ -2,10 +2,7 @@ import Container from "@/components/ui/Container";
 import { siteConfig } from "@/lib/data";
 
 const legalLinks = [
-  { label: "이용약관", href: "#" },
   { label: "개인정보처리방침", href: "/privacy" },
-  { label: "파트너지원", href: "#" },
-  { label: "고객지원", href: "#" },
 ];
 
 export default function Footer() {
@@ -32,7 +29,6 @@ export default function Footer() {
             <p>이메일 {siteConfig.email}</p>
             <p>주소 {siteConfig.address}</p>
             <p>사업자등록번호 {siteConfig.businessNumber}</p>
-            <p>통신판매업 신고 {siteConfig.mailOrderNumber}</p>
           </div>
         </div>
 
