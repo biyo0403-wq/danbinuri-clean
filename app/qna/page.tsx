@@ -5,14 +5,47 @@ import FloatingCTA from "@/components/ui/FloatingCTA";
 import Container from "@/components/ui/Container";
 import QnaBoard from "@/components/sections/QnaBoard";
 import FaqAccordion from "@/components/sections/FaqAccordion";
-import { siteConfig } from "@/lib/data";
+import { siteConfig, type QnaListItem } from "@/lib/data";
+import { getSupabaseAdmin } from "@/lib/supabaseAdmin";
 
 export const metadata: Metadata = {
   title: `고객문의 | ${siteConfig.name}`,
   description: "궁금한 점을 문의하고, 자주 묻는 질문에서 답을 빠르게 확인하세요.",
 };
 
-export default function QnaPage() {
+// 항상 최신 글 목록을 보여주도록 정적/조회 캐시를 모두 끕니다.
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
+
+async function getPosts(): Promise<QnaListItem[]> {
+  try {
+    const supabase = getSupabaseAdmin();
+    const { data, error } = await supabase
+      .from("qna_posts")
+      .select("id, title, author, answer, created_at")
+      .order("created_at", { ascending: false });
+    if (error || !data) return [];
+    return data.map((p) => {
+      const d = new Date(p.created_at);
+      const date = `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, "0")}.${String(
+        d.getDate()
+      ).padStart(2, "0")}`;
+      return {
+        id: p.id,
+        title: p.title,
+        author: p.author,
+        date,
+        answered: !!p.answer,
+      };
+    });
+  } catch {
+    // 환경변수 미설정 등으로 조회 실패 시 빈 목록으로 안전하게 표시
+    return [];
+  }
+}
+
+export default async function QnaPage() {
+  const posts = await getPosts();
   return (
     <>
       <Header />
@@ -30,7 +63,7 @@ export default function QnaPage() {
               </p>
             </div>
             <div className="max-w-4xl mx-auto">
-              <QnaBoard />
+              <QnaBoard posts={posts} />
             </div>
           </Container>
         </section>

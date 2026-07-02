@@ -361,21 +361,14 @@ export const faqs: FaqItem[] = [
   },
 ];
 
-// ── Q&A 게시판 (샘플 데이터 / 백엔드 연동 전 표시용) ──
-export interface QnaPost {
+// ── Q&A 게시판: 목록에 표시할 글 한 건의 형태 (실제 데이터는 Supabase에서 조회) ──
+export interface QnaListItem {
   id: number;
   title: string;
   author: string;
   date: string;
   answered: boolean;
 }
-
-export const qnaPosts: QnaPost[] = [
-  { id: 4, title: "천장형 시스템 에어컨도 살균세척 가능한가요?", author: "김**", date: "2026.06.22", answered: true },
-  { id: 3, title: "사무실 대리석 로비 연마 견적 문의드립니다", author: "이**", date: "2026.06.18", answered: true },
-  { id: 2, title: "에어컨 이전 설치 비용이 궁금합니다", author: "박**", date: "2026.06.11", answered: false },
-  { id: 1, title: "현관 대리석 깨진 부분 보수 되나요?", author: "정**", date: "2026.06.03", answered: true },
-];
 
 // ── 시공사례 (에어컨 / 석재보수) ──
 export interface CaseItem {
