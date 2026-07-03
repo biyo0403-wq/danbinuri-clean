@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import type { QnaListItem } from "@/lib/data";
 import { PenLine, Lock, X } from "lucide-react";
 
@@ -173,7 +174,9 @@ export default function QnaBoard({ posts }: { posts: QnaListItem[] }) {
                 <span className="hidden sm:block text-center text-slate-400">{post.id}</span>
                 <span className="flex items-center gap-2 font-medium text-slate-800">
                   <Lock className="w-3.5 h-3.5 shrink-0 text-slate-300" />
-                  <span className="truncate">{post.title}</span>
+                  <Link href={`/qna/${post.id}`} className="truncate hover:text-blue-700 hover:underline">
+                    {post.title}
+                  </Link>
                   {post.answered ? (
                     <span className="shrink-0 rounded bg-blue-50 px-1.5 py-0.5 text-xs font-bold text-blue-600">
                       답변완료
