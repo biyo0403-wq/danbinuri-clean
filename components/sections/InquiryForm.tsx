@@ -61,24 +61,27 @@ export default function InquiryForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
+      {/* 스팸 봇 차단용 숨김 필드 (사람에게는 보이지 않음) */}
+      <input type="text" name="website" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
+
       <div className="grid sm:grid-cols-2 gap-5">
         <div>
           <label className="block text-sm font-semibold text-slate-700 mb-1.5">
             이름 <span className="text-orange-500">*</span>
           </label>
-          <input name="name" type="text" required placeholder="성함을 입력해 주세요" className={inputClass} />
+          <input name="name" type="text" required maxLength={50} placeholder="성함을 입력해 주세요" className={inputClass} />
         </div>
         <div>
           <label className="block text-sm font-semibold text-slate-700 mb-1.5">
             연락처 <span className="text-orange-500">*</span>
           </label>
-          <input name="phone" type="tel" required placeholder="010-0000-0000" className={inputClass} />
+          <input name="phone" type="tel" required maxLength={30} placeholder="010-0000-0000" className={inputClass} />
         </div>
       </div>
 
       <div>
         <label className="block text-sm font-semibold text-slate-700 mb-1.5">이메일</label>
-        <input name="email" type="email" placeholder="example@email.com (선택)" className={inputClass} />
+        <input name="email" type="email" maxLength={100} placeholder="example@email.com (선택)" className={inputClass} />
       </div>
 
       <div>
@@ -105,6 +108,7 @@ export default function InquiryForm() {
           name="message"
           required
           rows={5}
+          maxLength={2000}
           placeholder="현장 위치, 규모, 원하시는 일정 등을 남겨주시면 더 정확한 견적을 안내해 드립니다."
           className={`${inputClass} resize-none`}
         />

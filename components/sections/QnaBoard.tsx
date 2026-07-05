@@ -81,12 +81,15 @@ export default function QnaBoard({ posts }: { posts: QnaListItem[] }) {
             </button>
           </div>
 
+          {/* 스팸 봇 차단용 숨김 필드 (사람에게는 보이지 않음) */}
+          <input type="text" name="website" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
+
           <div className="grid sm:grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-semibold text-slate-700 mb-1.5">
                 작성자 <span className="text-orange-500">*</span>
               </label>
-              <input name="author" type="text" required placeholder="이름 또는 닉네임" className={inputClass} />
+              <input name="author" type="text" required maxLength={50} placeholder="이름 또는 닉네임" className={inputClass} />
             </div>
             <div>
               <label className="block text-sm font-semibold text-slate-700 mb-1.5">
@@ -97,6 +100,7 @@ export default function QnaBoard({ posts }: { posts: QnaListItem[] }) {
                 type="password"
                 required
                 minLength={4}
+                maxLength={64}
                 placeholder="4자 이상 (글 확인·삭제 시 사용)"
                 className={inputClass}
               />
@@ -107,7 +111,7 @@ export default function QnaBoard({ posts }: { posts: QnaListItem[] }) {
             <label className="block text-sm font-semibold text-slate-700 mb-1.5">
               제목 <span className="text-orange-500">*</span>
             </label>
-            <input name="title" type="text" required placeholder="문의 제목을 입력해 주세요" className={inputClass} />
+            <input name="title" type="text" required maxLength={200} placeholder="문의 제목을 입력해 주세요" className={inputClass} />
           </div>
 
           <div>
@@ -118,6 +122,7 @@ export default function QnaBoard({ posts }: { posts: QnaListItem[] }) {
               name="content"
               required
               rows={5}
+              maxLength={2000}
               placeholder="문의하실 내용을 자세히 남겨주세요."
               className={`${inputClass} resize-none`}
             />

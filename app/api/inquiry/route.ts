@@ -1,17 +1,26 @@
 import { NextResponse } from "next/server";
 import { getSupabaseAdmin } from "@/lib/supabaseAdmin";
+import { fieldStr, isBot } from "@/lib/formGuards";
+import { inquiryServices } from "@/lib/data";
 
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const name = String(body.name ?? "").trim();
-    const phone = String(body.phone ?? "").trim();
-    const service = String(body.service ?? "").trim();
-    const message = String(body.message ?? "").trim();
-    const email = String(body.email ?? "").trim() || null;
+
+    // 허니팟에 걸린 봇은 저장하지 않고 성공한 척 응답
+    if (isBot(body)) return NextResponse.json({ ok: true });
+
+    const name = fieldStr(body.name, 50);
+    const phone = fieldStr(body.phone, 30);
+    const service = fieldStr(body.service, 50);
+    const message = fieldStr(body.message, 2000);
+    const email = fieldStr(body.email, 100) || null;
 
     if (!name || !phone || !service || !message) {
       return NextResponse.json({ error: "필수 항목을 모두 입력해 주세요." }, { status: 400 });
+    }
+    if (!inquiryServices.includes(service)) {
+      return NextResponse.json({ error: "서비스 항목을 다시 선택해 주세요." }, { status: 400 });
     }
 
     const supabase = getSupabaseAdmin();

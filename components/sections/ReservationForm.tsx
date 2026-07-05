@@ -63,18 +63,21 @@ export default function ReservationForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
+      {/* 스팸 봇 차단용 숨김 필드 (사람에게는 보이지 않음) */}
+      <input type="text" name="website" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
+
       <div className="grid sm:grid-cols-2 gap-5">
         <div>
           <label className="block text-sm font-semibold text-slate-700 mb-1.5">
             이름 <span className="text-orange-500">*</span>
           </label>
-          <input name="name" type="text" required placeholder="성함을 입력해 주세요" className={inputClass} />
+          <input name="name" type="text" required maxLength={50} placeholder="성함을 입력해 주세요" className={inputClass} />
         </div>
         <div>
           <label className="block text-sm font-semibold text-slate-700 mb-1.5">
             연락처 <span className="text-orange-500">*</span>
           </label>
-          <input name="phone" type="tel" required placeholder="010-0000-0000" className={inputClass} />
+          <input name="phone" type="tel" required maxLength={30} placeholder="010-0000-0000" className={inputClass} />
         </div>
       </div>
 
@@ -122,7 +125,7 @@ export default function ReservationForm() {
         <label className="block text-sm font-semibold text-slate-700 mb-1.5">
           방문 주소 <span className="text-orange-500">*</span>
         </label>
-        <input name="address" type="text" required placeholder="시공이 필요한 현장 주소" className={inputClass} />
+        <input name="address" type="text" required maxLength={200} placeholder="시공이 필요한 현장 주소" className={inputClass} />
       </div>
 
       <div>
@@ -130,6 +133,7 @@ export default function ReservationForm() {
         <textarea
           name="note"
           rows={4}
+          maxLength={1000}
           placeholder="현장 규모, 특이사항, 추가로 원하시는 점을 남겨주세요. (선택)"
           className={`${inputClass} resize-none`}
         />

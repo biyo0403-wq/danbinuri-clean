@@ -1,13 +1,18 @@
 import { NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
 import { getSupabaseAdmin } from "@/lib/supabaseAdmin";
+import { fieldStr, isBot } from "@/lib/formGuards";
 
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const title = String(body.title ?? "").trim();
-    const author = String(body.author ?? "").trim();
-    const content = String(body.content ?? "").trim();
+
+    // 허니팟에 걸린 봇은 저장하지 않고 성공한 척 응답
+    if (isBot(body)) return NextResponse.json({ ok: true });
+
+    const title = fieldStr(body.title, 200);
+    const author = fieldStr(body.author, 50);
+    const content = fieldStr(body.content, 2000);
     const password = String(body.password ?? "");
 
     if (!title || !author || !content || !password) {
@@ -16,8 +21,8 @@ export async function POST(req: Request) {
         { status: 400 }
       );
     }
-    if (password.length < 4) {
-      return NextResponse.json({ error: "비밀번호는 4자 이상 입력해 주세요." }, { status: 400 });
+    if (password.length < 4 || password.length > 64) {
+      return NextResponse.json({ error: "비밀번호는 4~64자로 입력해 주세요." }, { status: 400 });
     }
 
     // 원문 비밀번호는 저장하지 않고 해시만 저장
