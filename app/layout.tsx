@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.danbiservice.co.kr"),
   title: "단비누리 | 에어컨 살균세척·석재보수 전문",
   description:
     "에어컨 분해 살균세척·설치, 대리석 줄눈 시공·연마 광택·보수까지. 검증된 전문 인력과 표준화된 공정으로 서울·수도권 시설관리를 책임지는 단비누리입니다.",
@@ -22,6 +23,11 @@ export const metadata: Metadata = {
     siteName: "단비누리",
     locale: "ko_KR",
     type: "website",
+  },
+  verification: {
+    other: {
+      "naver-site-verification": "90869f99db4434392e9a4ee34ac3fa28abef033c",
+    },
   },
 };
 
