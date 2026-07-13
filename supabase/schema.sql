@@ -6,14 +6,16 @@
 
 -- 1) 견적문의 (InquiryForm)
 create table if not exists public.inquiries (
-  id          bigint generated always as identity primary key,
-  name        text not null,           -- 이름
-  phone       text not null,           -- 연락처
-  email       text,                    -- 이메일(선택)
-  service     text not null,           -- 문의 서비스
-  message     text not null,           -- 문의 내용
-  status      text not null default '신규',  -- 신규 / 확인 / 완료
-  created_at  timestamptz not null default now()
+  id             bigint generated always as identity primary key,
+  name           text not null,           -- 이름
+  phone          text not null,           -- 연락처
+  email          text,                    -- 이메일(선택)
+  service        text not null,           -- 문의 서비스 (카테고리 - 세부서비스, 또는 "기타 문의")
+  address        text,                    -- 주소(선택)
+  preferred_date date,                    -- 희망 날짜(선택)
+  message        text not null,           -- 문의 내용
+  status         text not null default '신규',  -- 신규 / 확인 / 완료
+  created_at     timestamptz not null default now()
 );
 
 -- 2) 방문예약 (ReservationForm)
@@ -46,6 +48,11 @@ create table if not exists public.qna_posts (
 create index if not exists inquiries_created_idx    on public.inquiries (created_at desc);
 create index if not exists reservations_created_idx on public.reservations (created_at desc);
 create index if not exists qna_posts_created_idx    on public.qna_posts (created_at desc);
+
+-- ── 마이그레이션: 이미 inquiries 표를 만든 적이 있다면 아래 2줄만 실행하세요 ──
+-- (address/preferred_date 컬럼을 나중에 추가한 경우. 이미 있으면 안전하게 무시됩니다)
+alter table public.inquiries add column if not exists address text;
+alter table public.inquiries add column if not exists preferred_date date;
 
 -- ── 보안: Row Level Security(RLS) 켜기 ──
 -- 정책을 따로 만들지 않으면, 브라우저에 노출되는 공개키(anon)로는 이 표들에
