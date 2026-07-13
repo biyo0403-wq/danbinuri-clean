@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { getSupabaseAdmin } from "@/lib/supabaseAdmin";
 import { fieldStr, isBot } from "@/lib/formGuards";
 import { inquiryServices } from "@/lib/data";
+import { sendAdminNotification, toHtmlParagraph } from "@/lib/resend";
 
 export async function POST(req: Request) {
   try {
@@ -29,6 +30,18 @@ export async function POST(req: Request) {
       .insert({ name, phone, email, service, message });
 
     if (error) throw error;
+
+    await sendAdminNotification(
+      `[견적문의] ${name}님의 문의가 접수되었습니다`,
+      `
+        <h2>새 견적문의가 접수되었습니다</h2>
+        <p><b>이름:</b> ${toHtmlParagraph(name)}</p>
+        <p><b>연락처:</b> ${toHtmlParagraph(phone)}</p>
+        ${email ? `<p><b>이메일:</b> ${toHtmlParagraph(email)}</p>` : ""}
+        <p><b>서비스:</b> ${toHtmlParagraph(service)}</p>
+        <p><b>문의 내용:</b><br/>${toHtmlParagraph(message)}</p>
+      `
+    );
 
     return NextResponse.json({ ok: true });
   } catch (err) {

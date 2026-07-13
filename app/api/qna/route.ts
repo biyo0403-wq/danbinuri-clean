@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
 import { getSupabaseAdmin } from "@/lib/supabaseAdmin";
 import { fieldStr, isBot } from "@/lib/formGuards";
+import { sendAdminNotification, toHtmlParagraph } from "@/lib/resend";
 
 export async function POST(req: Request) {
   try {
@@ -34,6 +35,17 @@ export async function POST(req: Request) {
       .insert({ title, author, content, password_hash });
 
     if (error) throw error;
+
+    await sendAdminNotification(
+      `[고객문의] 새 글: ${title}`,
+      `
+        <h2>새 고객문의 글이 등록되었습니다</h2>
+        <p><b>작성자:</b> ${toHtmlParagraph(author)}</p>
+        <p><b>제목:</b> ${toHtmlParagraph(title)}</p>
+        <p><b>내용:</b><br/>${toHtmlParagraph(content)}</p>
+        <p>Supabase 대시보드의 qna_posts 표에서 answer 칸에 답변을 입력하면 고객에게 표시됩니다.</p>
+      `
+    );
 
     return NextResponse.json({ ok: true });
   } catch (err) {

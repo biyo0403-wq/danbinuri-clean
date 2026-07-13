@@ -4,13 +4,13 @@ export const siteConfig = {
   tagline: "에어컨 살균세척 · 석재보수 전문",
   phone: "02-6448-7221",
   hours: "평일 10:00 ~ 18:00 (주말·공휴일 휴무)",
-  email: "danbinuri25@naver.com",
+  email: "danbinuri25@danbinuri.kr",
   ceo: "이영기",
   address: "서울특별시 서초구 논현로11길 49, 2층 (양재동)",
   businessNumber: "490-81-03515",
   copyright: "© 2026 단비누리. All rights reserved.",
   // 견적 문의가 접수될 이메일 (사이트 자체 폼 사용 시)
-  quoteEmail: "danbinuri25@naver.com",
+  quoteEmail: "danbinuri25@danbinuri.kr",
   // 견적 문의는 사이트 자체 페이지(/inquiry)로 연결됩니다.
   // (구글폼으로 되돌리려면 아래 주석의 주소를 quoteFormUrl 값에 넣으세요.)
   // "https://docs.google.com/forms/d/e/1FAIpQLScAOM7_P70-Q5li8ovpTHFghZteJ4xemZzZpjW0BhA6iQQJtw/viewform?embedded=true"
