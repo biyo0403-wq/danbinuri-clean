@@ -9,8 +9,14 @@ export default function TopBar() {
           <div className="flex items-center gap-3">
             <span className="text-slate-400">패밀리 사이트</span>
             {familySites.map((site) => (
-              <a key={site} href="#" className="hover:text-blue-600 transition-colors">
-                {site}
+              <a
+                key={site.label}
+                href={site.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-blue-600 transition-colors"
+              >
+                {site.label}
               </a>
             ))}
           </div>

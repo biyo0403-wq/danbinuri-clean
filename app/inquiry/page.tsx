@@ -9,7 +9,7 @@ import { Phone, Mail, Clock, MapPin } from "lucide-react";
 
 export const metadata: Metadata = {
   title: `견적문의 | ${siteConfig.name}`,
-  description: "에어컨 살균세척·설치, 석재보수 견적을 문의하세요. 전문 상담팀이 빠르게 안내해 드립니다.",
+  description: "에어컨·공조기·석재 유지관리 견적을 문의하세요. 전문 상담팀이 빠르게 안내해 드립니다.",
 };
 
 const contactItems = [
@@ -31,7 +31,7 @@ export default function InquiryPage() {
             </span>
             <h1 className="mt-3 text-3xl sm:text-4xl font-extrabold text-slate-900">견적문의</h1>
             <p className="mt-4 text-lg text-slate-600 leading-relaxed">
-              에어컨 살균세척·설치부터 석재보수까지, 궁금한 점을 남겨주시면
+              에어컨·공조기부터 석재 유지관리까지, 궁금한 점을 남겨주시면
               <br className="hidden sm:block" />
               전문 상담팀이 빠르고 정확하게 안내해 드립니다.
             </p>

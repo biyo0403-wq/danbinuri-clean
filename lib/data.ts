@@ -1,7 +1,7 @@
-// ── 사이트 공통 정보 (실제 회사 고유정보 아님 / 임시값) ──
+// ── 사이트 공통 정보 ──
 export const siteConfig = {
   name: "단비누리",
-  tagline: "에어컨 살균세척 · 석재보수 전문",
+  tagline: "에어컨 · 공조기 · 석재 유지관리 전문",
   phone: "02-6448-7221",
   hours: "평일 10:00 ~ 18:00 (주말·공휴일 휴무)",
   email: "danbinuri25@danbinuri.kr",
@@ -9,16 +9,14 @@ export const siteConfig = {
   address: "서울특별시 서초구 논현로11길 49, 2층 (양재동)",
   businessNumber: "490-81-03515",
   copyright: "© 2026 단비누리. All rights reserved.",
-  // 견적 문의가 접수될 이메일 (사이트 자체 폼 사용 시)
+  // 견적 문의 알림을 받을 이메일 (Vercel 환경변수 INQUIRY_NOTIFY_EMAIL이 우선 적용됨)
   quoteEmail: "danbinuri25@danbinuri.kr",
-  // 견적 문의는 사이트 자체 페이지(/inquiry)로 연결됩니다.
-  // (구글폼으로 되돌리려면 아래 주석의 주소를 quoteFormUrl 값에 넣으세요.)
-  // "https://docs.google.com/forms/d/e/1FAIpQLScAOM7_P70-Q5li8ovpTHFghZteJ4xemZzZpjW0BhA6iQQJtw/viewform?embedded=true"
-  quoteFormUrl: "",
 };
 
 // 상단 유틸 바 - 패밀리 사이트
-export const familySites = ["의류몰", "사무용품몰", "산업용품몰"];
+export const familySites = [
+  { label: "단비웨어", href: "https://www.danbiwear.co.kr" },
+];
 
 // 헤더 우측 간단 메뉴
 export const utilNav = [
@@ -281,17 +279,25 @@ export const heroSlides: HeroSlide[] = [
     cta: "견적 문의하기",
   },
   {
-    tag: "에어컨 살균세척·설치",
-    heading: "쾌적한 공기\n에어컨 살균세척",
-    sub: "분해 살균세척으로 냄새와 곰팡이를 완전히 제거합니다.",
+    tag: "에어컨 유지관리",
+    heading: "쾌적한 공기\n에어컨 유지관리",
+    sub: "필터·세척 관리부터 설치·유지보수까지 한 팀이 책임집니다.",
     gradient: "linear-gradient(135deg, #0369a1 0%, #0ea5e9 100%)",
     image: "/images/hero-2.jpg",
     cta: "견적 문의하기",
   },
   {
-    tag: "석재보수",
-    heading: "새것 같은 대리석\n줄눈·연마·보수 시공",
-    sub: "줄눈부터 광택·보수까지 대리석을 본래 모습으로 복원합니다.",
+    tag: "공조기 유지관리",
+    heading: "건물 공기의 심장\n공조기 유지관리",
+    sub: "내부 세척·필터·핀코일 관리로 환기 효율을 되살립니다.",
+    gradient: "linear-gradient(135deg, #115e59 0%, #14b8a6 100%)",
+    image: "/images/hero-4.jpg",
+    cta: "견적 문의하기",
+  },
+  {
+    tag: "석재 유지관리",
+    heading: "새것 같은 대리석\n석재 유지관리",
+    sub: "바닥 연마부터 외벽 세척·발수, 파손 보수·오염 방지까지 관리합니다.",
     gradient: "linear-gradient(135deg, #292524 0%, #78716c 100%)",
     image: "/images/hero-3.jpg",
     cta: "견적 문의하기",
@@ -311,7 +317,7 @@ export const brandMission = {
   label: "Our Mission",
   title: "통합 솔루션으로\n고객의 공간을 지속적으로 케어합니다",
   en: "We continuously care for your space with all-in-one solutions.",
-  desc: "에어컨 살균세척부터 석재보수까지 — 검증된 전문 공정으로 고객의 공간을 책임집니다. 고객이 본업에 집중할 수 있도록, 공간 관리는 단비누리에 맡기세요.",
+  desc: "에어컨·공조기부터 석재 유지관리까지 — 검증된 전문 공정으로 고객의 공간을 책임집니다. 고객이 본업에 집중할 수 있도록, 공간 관리는 단비누리에 맡기세요.",
   image: "/images/mission.jpg",
 };
 
@@ -320,7 +326,7 @@ export const brandStory = {
   title: "믿고 맡기는 공간 관리, 단비누리",
   image: "/images/story.jpg",
   paragraphs: [
-    "단비누리는 고객이 믿고 맡길 수 있는 공간 관리를 약속합니다. 에어컨 살균세척부터 대리석 줄눈·연마·보수까지, 검증된 전문 인력과 표준화된 공정으로 보이지 않는 위생과 보이는 품격을 함께 책임집니다.",
+    "단비누리는 고객이 믿고 맡길 수 있는 공간 관리를 약속합니다. 에어컨·공조기 유지관리부터 대리석 바닥·외벽 석재 관리까지, 검증된 전문 인력과 표준화된 공정으로 보이지 않는 위생과 보이는 품격을 함께 책임집니다.",
     "공공기관과 기업 현장에서 쌓아온 경험을 바탕으로, 어디서나 한결같은 품질을 제공합니다. 시공으로 끝나지 않고 사후까지 책임지는 자세 — 고객의 공간을 내 공간처럼 대하는 마음이 단비누리가 신뢰받는 이유입니다.",
   ],
 };
@@ -342,27 +348,14 @@ export interface BrandItem {
   name: string;
   desc: string;
   image: string;
+  /** 외부 사이트 주소. 없으면 클릭 시 "준비 중" 안내가 표시됩니다. */
+  href?: string;
 }
 
 export const brands: BrandItem[] = [
-  { name: "의류몰", desc: "단체복·유니폼·작업복 전문 쇼핑몰", image: "/images/brand-1.jpg" },
+  { name: "단비웨어", desc: "단체복·유니폼·작업복 전문 쇼핑몰", image: "/images/brand-1.jpg", href: "https://www.danbiwear.co.kr" },
   { name: "사무용품몰", desc: "사무용품·소모품 전문 쇼핑몰", image: "/images/brand-2.jpg" },
   { name: "산업용품몰", desc: "산업·안전용품 전문 쇼핑몰", image: "/images/brand-3.jpg" },
-];
-
-// ── 견적문의 폼: 서비스 선택 항목 ──
-export const inquiryServices = [
-  "에어컨 필터·세척 관리",
-  "에어컨 설치",
-  "에어컨 유지보수",
-  "공조기 내부 세척",
-  "공조기 필터 관리",
-  "공조기 핀코일 관리",
-  "바닥 석재 유지 관리",
-  "석재 외벽 세척 및 발수 작업",
-  "석재 파손 보수 및 줄눈관리",
-  "석재 오염 방지 관리",
-  "기타 문의",
 ];
 
 // ── 자주 묻는 질문 (FAQ) ──
@@ -387,6 +380,21 @@ export const faqs: FaqItem[] = [
     category: "에어컨",
     q: "청소를 맡겼는데 냄새가 또 나요. 뭐가 다른가요?",
     a: "표면만 닦는 청소와 달리, 단비누리는 필터·열교환기·송풍팬까지 완전 분해 후 전문 살균제로 세척합니다. 냄새의 원인인 내부 곰팡이까지 제거해 재발이 크게 줄어듭니다.",
+  },
+  {
+    category: "공조기",
+    q: "공조기(AHU) 내부 세척은 얼마나 자주 해야 하나요?",
+    a: "건물 용도와 가동 시간에 따라 다르지만 일반 사무용 건물은 연 1~2회를 권장합니다. 현장 점검 후 오염도에 맞는 관리 주기를 제안해 드립니다.",
+  },
+  {
+    category: "공조기",
+    q: "핀코일 세척 중에 코일이 손상되지 않나요?",
+    a: "핀 손상을 막는 전용 장비와 세척 공정으로 진행합니다. 세척 후에는 송풍량과 열교환 상태까지 직접 확인하고 마무리합니다.",
+  },
+  {
+    category: "공조기",
+    q: "건물 전체 공조기를 한 번에 관리할 수 있나요?",
+    a: "네, 여러 대의 공조기도 일괄 점검·세척이 가능합니다. 점검·세척 이력을 기록해 다음 관리 주기까지 체계적으로 안내해 드립니다.",
   },
   {
     category: "석재보수",

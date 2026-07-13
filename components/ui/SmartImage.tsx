@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 interface SmartImageProps {
-  /** 예: "/images/hero.jpg" — public/images 폴더에 같은 이름 파일을 넣으면 자동 표시됩니다. */
+  /** 예: "/images/hero-1.jpg" — public/images 폴더에 같은 이름 파일을 넣으면 자동 표시됩니다. */
   src?: string;
   alt?: string;
   /** 비율/크기 등 바깥 박스 클래스 (예: "aspect-video", "aspect-square") */

@@ -9,7 +9,7 @@ import { MapPin } from "lucide-react";
 
 export const metadata: Metadata = {
   title: `시공사례 | ${siteConfig.name}`,
-  description: "에어컨 살균세척·설치와 석재보수 시공사례를 확인하세요.",
+  description: "에어컨·공조기·석재 유지관리 시공사례를 확인하세요.",
 };
 
 function CaseGrid({ cases }: { cases: CaseItem[] }) {

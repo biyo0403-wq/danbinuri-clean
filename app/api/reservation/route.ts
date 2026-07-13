@@ -1,8 +1,10 @@
 import { NextResponse } from "next/server";
 import { getSupabaseAdmin } from "@/lib/supabaseAdmin";
 import { fieldStr, isBot } from "@/lib/formGuards";
-import { inquiryServices } from "@/lib/data";
+import { servicePages, subServicePages } from "@/lib/data";
 import { sendAdminNotification, toHtmlParagraph } from "@/lib/resend";
+
+const validCategories = [...servicePages.map((s) => s.slug), "other"];
 
 export async function POST(req: Request) {
   try {
@@ -13,17 +15,15 @@ export async function POST(req: Request) {
 
     const name = fieldStr(body.name, 50);
     const phone = fieldStr(body.phone, 30);
-    const service = fieldStr(body.service, 50);
     const preferred_date = fieldStr(body.preferred_date, 10);
     const time_slot = fieldStr(body.time_slot, 30);
     const address = fieldStr(body.address, 200);
     const note = fieldStr(body.note, 1000) || null;
+    const category = fieldStr(body.category, 20);
+    const subServiceLabel = fieldStr(body.subService, 50);
 
-    if (!name || !phone || !service || !preferred_date || !time_slot || !address) {
+    if (!name || !phone || !preferred_date || !time_slot || !address) {
       return NextResponse.json({ error: "필수 항목을 모두 입력해 주세요." }, { status: 400 });
-    }
-    if (!inquiryServices.includes(service)) {
-      return NextResponse.json({ error: "서비스 항목을 다시 선택해 주세요." }, { status: 400 });
     }
     if (!/^\d{4}-\d{2}-\d{2}$/.test(preferred_date)) {
       return NextResponse.json({ error: "희망 방문일을 다시 선택해 주세요." }, { status: 400 });
@@ -32,6 +32,24 @@ export async function POST(req: Request) {
     const today = new Date().toISOString().slice(0, 10);
     if (preferred_date < today) {
       return NextResponse.json({ error: "지난 날짜는 예약할 수 없습니다." }, { status: 400 });
+    }
+    if (!validCategories.includes(category)) {
+      return NextResponse.json({ error: "예약 서비스를 선택해 주세요." }, { status: 400 });
+    }
+
+    // 서버에서 카테고리/세부서비스 조합을 다시 검증해 최종 표시 문구를 만듦
+    let service: string;
+    if (category === "other") {
+      service = "기타 문의";
+    } else {
+      const parent = servicePages.find((s) => s.slug === category);
+      const sub = subServicePages.find(
+        (s) => s.category === category && s.navLabel === subServiceLabel
+      );
+      if (!parent || !sub) {
+        return NextResponse.json({ error: "세부 서비스를 선택해 주세요." }, { status: 400 });
+      }
+      service = `${parent.navLabel} - ${sub.navLabel}`;
     }
 
     const supabase = getSupabaseAdmin();

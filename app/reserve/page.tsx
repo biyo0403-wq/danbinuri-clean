@@ -8,7 +8,7 @@ import { siteConfig } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: `방문 예약 | ${siteConfig.name}`,
-  description: "원하시는 날짜와 시간에 맞춰 에어컨·석재보수 시공 방문을 예약하세요.",
+  description: "원하시는 날짜와 시간에 맞춰 에어컨·공조기·석재 유지관리 방문을 예약하세요.",
 };
 
 const steps = [

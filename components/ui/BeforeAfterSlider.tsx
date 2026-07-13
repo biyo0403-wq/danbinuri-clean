@@ -4,9 +4,9 @@ import { useState } from "react";
 import { ArrowLeftRight } from "lucide-react";
 
 interface BeforeAfterSliderProps {
-  /** 시공 전 이미지 경로. 예: "/images/stone-grout-before.jpg" */
+  /** 시공 전 이미지 경로. 예: "/images/stone-repair-before.jpg" */
   beforeImage: string;
-  /** 시공 후 이미지 경로. 예: "/images/stone-grout-after.jpg" */
+  /** 시공 후 이미지 경로. 예: "/images/stone-repair-after.jpg" */
   afterImage: string;
   beforeLabel?: string;
   afterLabel?: string;

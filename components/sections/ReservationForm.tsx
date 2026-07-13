@@ -1,23 +1,59 @@
 "use client";
 
 import { useState } from "react";
-import { inquiryServices, siteConfig } from "@/lib/data";
+import { subServicePages, siteConfig } from "@/lib/data";
 
 const inputClass =
   "w-full rounded-lg border border-slate-300 px-4 py-3 text-slate-800 placeholder:text-slate-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-100 transition";
+
+const categoryOptions = [
+  { slug: "aircon", label: "에어컨" },
+  { slug: "hvac", label: "공조기" },
+  { slug: "stone", label: "석재보수" },
+  { slug: "other", label: "기타" },
+];
 
 const timeSlots = ["오전 (09~12시)", "오후 (12~15시)", "오후 (15~18시)", "시간 협의"];
 
 type Status = "idle" | "loading" | "success" | "error";
 
+function pillClass(active: boolean) {
+  return active
+    ? "rounded-full border-2 border-blue-600 bg-blue-50 px-4 py-2 text-sm font-bold text-blue-700 transition-colors"
+    : "rounded-full border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-600 hover:border-blue-400 hover:text-blue-600 transition-colors";
+}
+
 export default function ReservationForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [errorMsg, setErrorMsg] = useState("");
+  const [category, setCategory] = useState<string | null>(null);
+  const [subService, setSubService] = useState<string | null>(null);
+
+  const subOptions = category && category !== "other" ? subServicePages.filter((s) => s.category === category) : [];
+
+  function selectCategory(slug: string) {
+    setCategory(slug);
+    setSubService(null);
+  }
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+
+    if (!category) {
+      setStatus("error");
+      setErrorMsg("예약 서비스를 선택해 주세요.");
+      return;
+    }
+    if (category !== "other" && !subService) {
+      setStatus("error");
+      setErrorMsg("세부 서비스를 선택해 주세요.");
+      return;
+    }
+
     const form = e.currentTarget;
-    const payload = Object.fromEntries(new FormData(form).entries());
+    const payload: Record<string, unknown> = Object.fromEntries(new FormData(form).entries());
+    payload.category = category;
+    payload.subService = subService ?? "";
 
     setStatus("loading");
     setErrorMsg("");
@@ -33,6 +69,8 @@ export default function ReservationForm() {
       }
       setStatus("success");
       form.reset();
+      setCategory(null);
+      setSubService(null);
     } catch (err) {
       setStatus("error");
       setErrorMsg(err instanceof Error ? err.message : "예약 접수에 실패했습니다.");
@@ -82,19 +120,36 @@ export default function ReservationForm() {
       </div>
 
       <div>
-        <label className="block text-sm font-semibold text-slate-700 mb-1.5">
+        <label className="block text-sm font-semibold text-slate-700 mb-2">
           예약 서비스 <span className="text-orange-500">*</span>
         </label>
-        <select name="service" required defaultValue="" className={inputClass}>
-          <option value="" disabled>
-            서비스를 선택해 주세요
-          </option>
-          {inquiryServices.map((s) => (
-            <option key={s} value={s}>
-              {s}
-            </option>
+        <div className="flex flex-wrap gap-2">
+          {categoryOptions.map((c) => (
+            <button
+              key={c.slug}
+              type="button"
+              onClick={() => selectCategory(c.slug)}
+              className={pillClass(category === c.slug)}
+            >
+              {c.label}
+            </button>
           ))}
-        </select>
+        </div>
+
+        {subOptions.length > 0 && (
+          <div className="mt-3 flex flex-wrap gap-2 rounded-xl bg-slate-50 border border-slate-100 p-3">
+            {subOptions.map((s) => (
+              <button
+                key={s.slug}
+                type="button"
+                onClick={() => setSubService(s.navLabel)}
+                className={pillClass(subService === s.navLabel)}
+              >
+                {s.navLabel}
+              </button>
+            ))}
+          </div>
+        )}
       </div>
 
       <div className="grid sm:grid-cols-2 gap-5">

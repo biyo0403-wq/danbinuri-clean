@@ -33,8 +33,8 @@ export default function PrivacyPage() {
           <Section title="1. 수집하는 개인정보 항목">
             <p>회사는 견적 상담을 위해 아래의 개인정보를 수집합니다.</p>
             <ul className="list-disc pl-5 space-y-1">
-              <li>필수 항목: 성함, 연락처</li>
-              <li>선택 항목: 기관·업체명, 현장 위치(지역), 현장 규모, 희망 일정, 문의 내용</li>
+              <li>필수 항목: 성함, 연락처, 현장 주소</li>
+              <li>선택 항목: 이메일, 희망 날짜(방문·시공 희망일), 요청 사항, 문의 내용</li>
             </ul>
           </Section>
 
