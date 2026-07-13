@@ -32,7 +32,7 @@ export async function sendAdminNotification(subject: string, html: string) {
   try {
     const resend = getResend();
     const { error } = await resend.emails.send({
-      from: "단비누리 웹사이트 <onboarding@resend.dev>",
+      from: "단비누리 웹사이트 <noreply@danbinuri.kr>",
       to: siteConfig.quoteEmail,
       subject,
       html,
