@@ -35,6 +35,7 @@ export interface NavItem {
 export const mainNav: NavItem[] = [
   { label: "회사소개", href: "/" },
   { label: "에어컨", href: "/services/aircon" },
+  { label: "공조기", href: "/services/hvac" },
   { label: "석재보수", href: "/services/stone" },
   { label: "시공사례", href: "/cases" },
   { label: "고객문의", href: "/qna" },
@@ -53,8 +54,9 @@ export interface ServicePageData {
 }
 
 export const servicePages: ServicePageData[] = [
-  { slug: "aircon", navLabel: "에어컨", tag: "Air Conditioning" },
-  { slug: "stone", navLabel: "석재보수", tag: "Stone Care" },
+  { slug: "aircon", navLabel: "에어컨 유지관리", tag: "Air Conditioning Care" },
+  { slug: "hvac", navLabel: "공조기 유지관리", tag: "Air Handling Unit Care" },
+  { slug: "stone", navLabel: "석재 유지관리", tag: "Stone Care" },
 ];
 
 // ── 서비스별 공통 이유 4개 (세부 페이지 공유) ──
@@ -65,11 +67,17 @@ export const serviceReasons: Record<string, ServiceFeature[]> = {
     { title: "설치·이전·AS 원스톱", desc: "설치부터 사후 관리까지 한 팀이 책임" },
     { title: "공인 기술 인력 투입", desc: "전기기사·냉동기사 자격 보유 전문팀 시공" },
   ],
+  hvac: [
+    { title: "AHU 내부 완전 세척", desc: "패널 내부부터 송풍팬까지 꼼꼼히 세척해 환기 성능 회복" },
+    { title: "필터·핀코일 통합 관리", desc: "필터 교체부터 핀코일 세척까지 한 팀이 책임 관리" },
+    { title: "정기 점검 이력 관리", desc: "점검·세척 주기와 이력을 기록해 체계적으로 관리" },
+    { title: "건물 전체 일괄 관리", desc: "여러 대의 공조기도 일괄 점검·세척으로 효율적으로 관리" },
+  ],
   stone: [
-    { title: "줄눈 시공 전문", desc: "벌어지고 오염된 줄눈을 전용 재료로 깔끔하게 재시공" },
+    { title: "바닥·외벽 통합 관리", desc: "바닥 연마부터 외벽 세척·발수까지 한 팀이 책임 관리" },
     { title: "다이아몬드 연마 장비 보유", desc: "최신 장비로 거울 같은 광택 구현" },
-    { title: "손상 보수 전문", desc: "깨짐·파임·균열을 전용 충전재로 자연스럽게 복구" },
-    { title: "줄눈·연마·보수 원스톱", desc: "줄눈부터 광택·보수까지 한 팀이 책임 시공" },
+    { title: "파손 보수·줄눈 전문", desc: "깨짐·파임·균열과 벌어진 줄눈을 전용 재료로 복구" },
+    { title: "오염 방지 코팅 관리", desc: "침투성 코팅으로 오염물 침투를 예방하고 깨끗함을 오래 유지" },
   ],
 };
 
@@ -79,10 +87,15 @@ export const serviceSolutions: Record<string, ServiceFeature[]> = {
     { title: "POINT 02 — 검증된 살균제로 세균·곰팡이 제거", desc: "식약처 인증 살균제를 사용해 안전하고 확실하게 제거합니다." },
     { title: "POINT 03 — 시공 후 작동 확인까지 완료", desc: "세척·설치 완료 후 정상 작동 여부를 현장에서 직접 확인하고 마무리합니다." },
   ],
+  hvac: [
+    { title: "POINT 01 — 공조기 상태 진단 후 공정 설계", desc: "내부 오염도·필터 상태·핀코일 상태를 확인한 뒤 세척·관리 공정을 설계합니다." },
+    { title: "POINT 02 — 내부 세척·필터·핀코일 통합 관리", desc: "내부 세척과 필터 교체, 핀코일 세척을 함께 진행해 환기 효율을 종합적으로 회복합니다." },
+    { title: "POINT 03 — 시공 후 환기 성능 확인까지 완료", desc: "완료 후 송풍량과 환기 성능을 직접 확인하고 마무리합니다." },
+  ],
   stone: [
-    { title: "POINT 01 — 대리석 상태 진단 후 공정 설계", desc: "줄눈·표면·손상 상태를 확인한 뒤 줄눈 시공·연마·보수 공정을 설계합니다." },
-    { title: "POINT 02 — 줄눈 재시공·단계별 연마·보수", desc: "줄눈 재시공과 단계별 연마, 전용 충전재 보수로 미관과 광택을 함께 복원합니다." },
-    { title: "POINT 03 — 시공 후 광택·평탄도 확인까지 완료", desc: "완료 후 광택과 표면 평탄도를 직접 확인하고 마무리합니다." },
+    { title: "POINT 01 — 석재 상태 진단 후 관리 공정 설계", desc: "바닥·외벽 상태와 손상 정도를 확인한 뒤 맞춤 관리 공정을 설계합니다." },
+    { title: "POINT 02 — 연마·세척·보수·코팅 통합 시공", desc: "연마 광택, 외벽 세척·발수, 파손 보수·줄눈, 오염 방지 코팅을 상황에 맞게 진행합니다." },
+    { title: "POINT 03 — 시공 후 상태 확인까지 완료", desc: "완료 후 광택·표면 상태를 직접 확인하고 마무리합니다." },
   ],
 };
 
@@ -122,16 +135,16 @@ export interface SubServicePage {
 }
 
 export const subServicePages: SubServicePage[] = [
-  // ── 에어컨 ──
+  // ── 에어컨 유지관리 ──
   {
-    category: "aircon", slug: "wash", navLabel: "에어컨 살균세척",
-    heroTitle: "에어컨 살균세척",
-    heroDesc: "보이지 않는 세균과 곰팡이까지, 완전 분해 살균으로 해결합니다",
-    intro: "에어컨 내부는 습기와 먼지가 쌓여 세균·곰팡이의 온상이 됩니다. 단비누리는 필터부터 열교환기·팬까지 완전 분해 후 전문 살균제로 깨끗이 세척합니다.",
+    category: "aircon", slug: "filter-wash", navLabel: "필터·세척 관리",
+    heroTitle: "에어컨 필터·세척 관리",
+    heroDesc: "필터 청소부터 완전 분해 살균세척까지, 정기 관리로 쾌적한 공기를 유지합니다",
+    intro: "에어컨 필터에 쌓인 먼지와 내부 곰팡이는 방치하면 냉방 효율 저하와 실내 공기 오염으로 이어집니다. 단비누리는 필터 세척부터 완전 분해 살균세척까지 정기적인 관리로 쾌적한 상태를 유지합니다.",
     painPoints: [
+      { title: "필터 청소를 언제 해야 할지 모르겠어요", desc: "사용 환경에 맞춘 정기 점검·세척 주기를 제안해 드립니다" },
       { title: "에어컨을 켜면 퀴퀴한 냄새가 나요", desc: "내부 곰팡이와 세균이 원인, 완전 분해 살균으로 해결" },
       { title: "청소를 맡겼는데 냄새가 또 나요", desc: "표면만 닦는 청소는 한계, 분해 후 내부까지 살균" },
-      { title: "가족이 에어컨 바람에 기침·알레르기를 해요", desc: "세균·곰팡이 포자 완전 제거로 안전한 실내 공기" },
     ],
     heroImage: "/images/aircon-wash-hero.jpg",
   },
@@ -150,10 +163,10 @@ export const subServicePages: SubServicePage[] = [
     afterImage: "/images/aircon-install-after.jpg",
   },
   {
-    category: "aircon", slug: "repair", navLabel: "보수·점검",
-    heroTitle: "에어컨 보수·점검",
-    heroDesc: "이상 증상 빠른 진단, 당일 수리까지",
-    intro: "에어컨이 갑자기 멈추거나 냉방이 약해지면 냉매 부족, 팬 불량, 센서 이상 등 다양한 원인이 있습니다. 단비누리가 정확히 진단하고 빠르게 보수·점검합니다.",
+    category: "aircon", slug: "maintenance", navLabel: "유지보수",
+    heroTitle: "에어컨 유지보수",
+    heroDesc: "이상 증상 빠른 진단부터 정기 점검까지, 안정적인 사용을 책임집니다",
+    intro: "에어컨이 갑자기 멈추거나 냉방이 약해지면 냉매 부족, 팬 불량, 센서 이상 등 다양한 원인이 있습니다. 단비누리는 정확한 진단과 정기 점검으로 고장을 미리 예방하고 빠르게 조치합니다.",
     painPoints: [
       { title: "에어컨이 갑자기 작동을 안 해요", desc: "원인 진단부터 수리까지 당일 처리" },
       { title: "냉방은 되는데 효율이 많이 떨어졌어요", desc: "냉매·필터·센서 정밀 점검 후 수리" },
@@ -161,26 +174,46 @@ export const subServicePages: SubServicePage[] = [
     ],
     heroImage: "/images/aircon-repair-hero.jpg",
   },
-  // ── 석재보수 ──
+  // ── 공조기 유지관리 ──
   {
-    category: "stone", slug: "grout", navLabel: "대리석 줄눈 시공",
-    heroTitle: "대리석 줄눈 시공",
-    heroDesc: "벌어지고 오염된 줄눈을 새것처럼, 방수·미관 동시 복원",
-    intro: "대리석 사이 줄눈이 깨지거나 벌어지면 물이 스며들고 미관도 해칩니다. 단비누리는 손상된 줄눈을 제거하고 전용 재료로 재시공해 방수와 마감을 동시에 살립니다.",
+    category: "hvac", slug: "clean", navLabel: "내부 세척",
+    heroTitle: "공조기 내부 세척",
+    heroDesc: "공조기 내부에 쌓인 먼지와 오염물을 완전 세척해 환기 성능을 되살립니다",
+    intro: "건물 공조기(AHU) 내부는 장기간 사용하면 먼지, 오염물, 미생물이 쌓여 실내 공기질을 악화시킵니다. 단비누리는 내부 패널부터 송풍 팬까지 꼼꼼히 세척해 환기 성능과 위생을 함께 회복시킵니다.",
     painPoints: [
-      { title: "줄눈이 벌어지고 깨져 물이 스며들어요", desc: "기존 줄눈 제거 후 전용 재료로 재시공해 방수 복원" },
-      { title: "줄눈이 시커멓게 오염돼 지저분해요", desc: "오염 줄눈 제거 후 깨끗한 색으로 새로 시공" },
-      { title: "부분 보수가 너무 티가 날까 걱정돼요", desc: "주변 대리석 톤에 맞춰 자연스럽게 마감" },
+      { title: "환기구에서 먼지 냄새가 나요", desc: "공조기 내부 오염이 원인, 완전 세척으로 냄새 제거" },
+      { title: "공조기 청소를 언제 했는지 기억이 안 나요", desc: "정기 점검·세척 주기를 제안하고 이력을 관리해 드립니다" },
+      { title: "여러 대를 한 번에 관리하고 싶어요", desc: "건물 전체 공조기를 일괄 점검·세척, 효율적인 관리 가능" },
     ],
-    heroImage: "/images/stone-grout-hero.jpg",
-    beforeImage: "/images/stone-grout-before.jpg",
-    afterImage: "/images/stone-grout-after.jpg",
   },
   {
-    category: "stone", slug: "polish", navLabel: "대리석 연마 광택",
-    heroTitle: "대리석 연마 광택",
-    heroDesc: "흐려진 대리석을 단계별 연마·광택해 거울 같은 표면으로",
-    intro: "대리석은 시간이 지나면 광택을 잃고 흐려집니다. 단비누리는 다이아몬드 패드로 단계별 연마한 뒤 광택 작업을 진행해 본래의 깊은 광택을 되살립니다.",
+    category: "hvac", slug: "filter", navLabel: "필터 관리",
+    heroTitle: "공조기 필터 관리",
+    heroDesc: "막힌 필터를 정기 교체·세척해 환기 효율과 공기질을 지킵니다",
+    intro: "공조기 필터가 먼지로 막히면 송풍량이 줄고 전력 소모가 늘어납니다. 단비누리는 필터 상태를 점검해 세척 또는 교체 시기를 정확히 안내하고, 최적의 환기 효율을 유지합니다.",
+    painPoints: [
+      { title: "필터 교체 시기를 놓쳐 환기가 잘 안 돼요", desc: "정기 점검으로 교체·세척 시기를 미리 안내해 드립니다" },
+      { title: "필터 종류가 많아 뭘 써야 할지 모르겠어요", desc: "공조기 사양에 맞는 최적의 필터를 선정해 드립니다" },
+      { title: "필터 관리 후에도 먼지가 계속 나와요", desc: "필터뿐 아니라 내부 전체 오염까지 함께 점검·관리" },
+    ],
+  },
+  {
+    category: "hvac", slug: "fin-coil", navLabel: "핀코일 관리",
+    heroTitle: "공조기 핀코일 관리",
+    heroDesc: "핀코일에 쌓인 먼지와 오염을 세척해 냉난방 효율을 회복합니다",
+    intro: "공조기 핀코일(열교환 코일)에 먼지와 이물질이 쌓이면 열교환 효율이 떨어지고 냉난방 성능이 저하됩니다. 단비누리는 전용 장비로 핀코일을 손상 없이 세척해 본래의 효율을 되살립니다.",
+    painPoints: [
+      { title: "냉난방 효율이 예전 같지 않아요", desc: "핀코일 오염이 주요 원인, 전용 세척으로 효율 회복" },
+      { title: "핀코일이 손상될까 걱정돼요", desc: "핀 손상 없는 전용 장비와 세척 공정으로 안전하게 시공" },
+      { title: "관리 이력을 남기고 싶어요", desc: "점검·세척 이력을 기록해 체계적인 관리를 도와드립니다" },
+    ],
+  },
+  // ── 석재 유지관리 ──
+  {
+    category: "stone", slug: "floor-care", navLabel: "바닥 석재 유지 관리",
+    heroTitle: "바닥 석재 유지 관리",
+    heroDesc: "흐려진 대리석 바닥을 단계별 연마·광택해 거울 같은 표면으로 유지합니다",
+    intro: "대리석 바닥은 시간이 지나면 광택을 잃고 흐려집니다. 단비누리는 다이아몬드 패드로 단계별 연마한 뒤 광택 작업을 진행해 본래의 깊은 광택을 되살리고 꾸준히 유지 관리합니다.",
     painPoints: [
       { title: "대리석이 흐릿하고 광택이 사라졌어요", desc: "단계별 연마·광택으로 거울 같은 표면 복원" },
       { title: "사람이 많이 다녀 통로만 닳아 얼룩져요", desc: "바닥 전체 균일 연마로 광택 차이 제거" },
@@ -191,18 +224,40 @@ export const subServicePages: SubServicePage[] = [
     afterImage: "/images/stone-polish-after.jpg",
   },
   {
-    category: "stone", slug: "repair", navLabel: "대리석 보수",
-    heroTitle: "대리석 보수",
-    heroDesc: "깨짐·파임·균열까지, 손상된 대리석을 원상 복구합니다",
-    intro: "대리석의 크랙, 파임, 들뜸은 방치하면 점점 커집니다. 단비누리는 손상 부위를 전용 충전재로 메우고 주변과 자연스럽게 연마해 티 나지 않게 복구합니다.",
+    category: "stone", slug: "facade-wash", navLabel: "외벽 세척 및 발수 작업",
+    heroTitle: "외벽 세척 및 발수 작업",
+    heroDesc: "오염된 석재 외벽을 세척하고 발수 코팅으로 오염과 백화 현상을 예방합니다",
+    intro: "석재 외벽은 시간이 지나면 오염물과 이끼가 쌓이고, 수분 침투로 백화 현상이 발생할 수 있습니다. 단비누리는 전용 세척으로 외벽을 깨끗하게 되살리고, 발수 코팅으로 오염과 수분 침투를 예방합니다.",
+    painPoints: [
+      { title: "외벽에 검은 오염과 이끼가 껴 지저분해요", desc: "전용 세척제로 오염물을 제거해 깨끗한 외관을 되살립니다" },
+      { title: "비만 오면 벽에 하얀 얼룩(백화)이 생겨요", desc: "발수 코팅으로 수분 침투를 막아 백화 현상을 예방합니다" },
+      { title: "세척 후에도 금방 다시 오염돼요", desc: "발수 작업을 함께 진행해 오염 재발을 줄입니다" },
+    ],
+  },
+  {
+    category: "stone", slug: "repair-grout", navLabel: "파손 보수 및 줄눈관리",
+    heroTitle: "석재 파손 보수 및 줄눈관리",
+    heroDesc: "깨짐·파임·균열과 벌어진 줄눈까지, 손상된 석재를 원상 복구합니다",
+    intro: "석재의 크랙, 파임, 들뜸과 벌어지거나 오염된 줄눈은 방치하면 점점 커지고 물이 스며들 수 있습니다. 단비누리는 손상 부위를 전용 충전재로 메우고 줄눈을 재시공해 미관과 방수를 함께 복원합니다.",
     painPoints: [
       { title: "대리석이 깨지거나 파였어요", desc: "전용 충전재로 메운 뒤 평탄하게 연마" },
-      { title: "들뜨고 균열이 생겨 점점 커져요", desc: "손상 부위 보강 후 주변과 단차 없이 복구" },
+      { title: "줄눈이 벌어지고 깨져 물이 스며들어요", desc: "기존 줄눈 제거 후 전용 재료로 재시공해 방수 복원" },
       { title: "부분 보수 자국이 너무 티가 나요", desc: "주변과 동일하게 연마·광택해 자연스럽게 마감" },
     ],
     heroImage: "/images/stone-repair-hero.jpg",
     beforeImage: "/images/stone-repair-before.jpg",
     afterImage: "/images/stone-repair-after.jpg",
+  },
+  {
+    category: "stone", slug: "stain-prevention", navLabel: "오염 방지 관리",
+    heroTitle: "석재 오염 방지 관리",
+    heroDesc: "오염물 침투를 막는 코팅 관리로 석재의 깨끗한 상태를 오래 유지합니다",
+    intro: "대리석은 다공성 재질이라 오염물이 스며들면 얼룩이 남기 쉽습니다. 단비누리는 침투성 코팅제로 표면을 보호해 오염물이 스며들기 전에 닦아낼 수 있도록 관리합니다.",
+    painPoints: [
+      { title: "커피나 음료를 흘리면 얼룩이 잘 안 빠져요", desc: "침투성 코팅으로 오염물이 스며들기 전에 표면에서 닦아낼 수 있게 보호합니다" },
+      { title: "통행량이 많아 자꾸 더러워져요", desc: "정기 코팅 관리로 오염 저항력을 유지합니다" },
+      { title: "코팅이 얼마나 유지되는지 궁금해요", desc: "시공 환경에 맞는 코팅 주기를 안내하고 재시공해 드립니다" },
+    ],
   },
 ];
 
@@ -297,12 +352,16 @@ export const brands: BrandItem[] = [
 
 // ── 견적문의 폼: 서비스 선택 항목 ──
 export const inquiryServices = [
-  "에어컨 살균세척",
+  "에어컨 필터·세척 관리",
   "에어컨 설치",
-  "에어컨 보수·점검",
-  "대리석 줄눈 시공",
-  "대리석 연마 광택",
-  "대리석 보수",
+  "에어컨 유지보수",
+  "공조기 내부 세척",
+  "공조기 필터 관리",
+  "공조기 핀코일 관리",
+  "바닥 석재 유지 관리",
+  "석재 외벽 세척 및 발수 작업",
+  "석재 파손 보수 및 줄눈관리",
+  "석재 오염 방지 관리",
   "기타 문의",
 ];
 
