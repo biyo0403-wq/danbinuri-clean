@@ -24,19 +24,16 @@ export function toHtmlParagraph(value: string): string {
 }
 
 /**
- * 관리자(siteConfig.quoteEmail)에게 알림 메일을 보냅니다.
+ * 관리자에게 알림 메일을 보냅니다.
  * 이메일은 부가 알림 기능이라, 발송에 실패해도 예외를 던지지 않고 콘솔에만 기록합니다.
  * (DB 저장이 우선이며, 메일 실패로 폼 제출 자체가 실패하면 안 됩니다.)
  */
 export async function sendAdminNotification(subject: string, html: string) {
   try {
     const resend = getResend();
-    const { error } = await resend.emails.send({
-      from: "단비누리 웹사이트 <noreply@danbinuri.kr>",
-      to: siteConfig.quoteEmail,
-      subject,
-      html,
-    });
+    const from = process.env.INQUIRY_FROM_EMAIL || "단비누리 웹사이트 <noreply@danbinuri.kr>";
+    const to = process.env.INQUIRY_NOTIFY_EMAIL || siteConfig.quoteEmail;
+    const { error } = await resend.emails.send({ from, to, subject, html });
     if (error) console.error("[resend] send failed:", error);
   } catch (err) {
     console.error("[resend] send failed:", err);
