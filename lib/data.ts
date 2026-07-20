@@ -183,6 +183,7 @@ export const subServicePages: SubServicePage[] = [
       { title: "공조기 청소를 언제 했는지 기억이 안 나요", desc: "정기 점검·세척 주기를 제안하고 이력을 관리해 드립니다" },
       { title: "여러 대를 한 번에 관리하고 싶어요", desc: "건물 전체 공조기를 일괄 점검·세척, 효율적인 관리 가능" },
     ],
+    heroImage: "/images/hvac-clean-hero.jpg",
   },
   {
     category: "hvac", slug: "filter", navLabel: "필터 관리",
@@ -194,6 +195,7 @@ export const subServicePages: SubServicePage[] = [
       { title: "필터 종류가 많아 뭘 써야 할지 모르겠어요", desc: "공조기 사양에 맞는 최적의 필터를 선정해 드립니다" },
       { title: "필터 관리 후에도 먼지가 계속 나와요", desc: "필터뿐 아니라 내부 전체 오염까지 함께 점검·관리" },
     ],
+    heroImage: "/images/hvac-filter-hero.jpg",
   },
   {
     category: "hvac", slug: "fin-coil", navLabel: "핀코일 관리",
@@ -205,6 +207,7 @@ export const subServicePages: SubServicePage[] = [
       { title: "핀코일이 손상될까 걱정돼요", desc: "핀 손상 없는 전용 장비와 세척 공정으로 안전하게 시공" },
       { title: "관리 이력을 남기고 싶어요", desc: "점검·세척 이력을 기록해 체계적인 관리를 도와드립니다" },
     ],
+    heroImage: "/images/hvac-fin-coil-hero.jpg",
   },
   // ── 석재 유지관리 ──
   {
@@ -231,6 +234,7 @@ export const subServicePages: SubServicePage[] = [
       { title: "비만 오면 벽에 하얀 얼룩(백화)이 생겨요", desc: "발수 코팅으로 수분 침투를 막아 백화 현상을 예방합니다" },
       { title: "세척 후에도 금방 다시 오염돼요", desc: "발수 작업을 함께 진행해 오염 재발을 줄입니다" },
     ],
+    heroImage: "/images/stone-facade-hero.jpg",
   },
   {
     category: "stone", slug: "repair-grout", navLabel: "파손 보수 및 줄눈관리",
@@ -256,6 +260,7 @@ export const subServicePages: SubServicePage[] = [
       { title: "통행량이 많아 자꾸 더러워져요", desc: "정기 코팅 관리로 오염 저항력을 유지합니다" },
       { title: "코팅이 얼마나 유지되는지 궁금해요", desc: "시공 환경에 맞는 코팅 주기를 안내하고 재시공해 드립니다" },
     ],
+    heroImage: "/images/stone-stain-hero.jpg",
   },
 ];
 

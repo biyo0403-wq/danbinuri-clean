@@ -23,10 +23,15 @@
   aircon-wash-hero.jpg    (에어컨 - 필터·세척 관리)
   aircon-install-hero.jpg (에어컨 - 설치)
   aircon-repair-hero.jpg  (에어컨 - 유지보수)
+  hvac-clean-hero.jpg     (공조기 - 내부 세척)
+  hvac-filter-hero.jpg    (공조기 - 필터 관리)
+  hvac-fin-coil-hero.jpg  (공조기 - 핀코일 관리)
   stone-polish-hero.jpg   (석재 - 바닥 석재 유지 관리)
+  stone-facade-hero.jpg   (석재 - 외벽 세척 및 발수 작업)
   stone-repair-hero.jpg   (석재 - 파손 보수 및 줄눈관리)
-  ※ 공조기 3개(내부 세척/필터 관리/핀코일 관리)와 석재 2개(외벽 세척·발수,
-    오염 방지 관리)는 아직 사진 연결 전입니다. 사진이 준비되면 알려주세요.
+  stone-stain-hero.jpg    (석재 - 오염 방지 관리)
+  ※ 전/후 비교 사진이 없는 서비스는 히어로 사진이 About 옆
+    시공 이미지 칸에도 함께 표시됩니다.
 
 [시공 전/후 비교 슬라이더 - About 옆 영역]
   aircon-install-before.jpg / aircon-install-after.jpg (에어컨 설치)

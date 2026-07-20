@@ -217,6 +217,12 @@ export default function SubServicePage({
                   afterImage={sub.afterImage}
                   className="aspect-[4/3]"
                 />
+              ) : sub.heroImage ? (
+                // 전/후 사진이 없으면 히어로 사진을 시공 이미지로 함께 사용
+                <div
+                  className="rounded-2xl aspect-[4/3] bg-cover bg-center"
+                  style={{ backgroundImage: `url(${sub.heroImage})` }}
+                />
               ) : (
                 <div className="rounded-2xl bg-slate-200 aspect-[4/3] flex items-center justify-center">
                   <span className="text-slate-400 text-sm">시공 이미지 준비 중</span>
