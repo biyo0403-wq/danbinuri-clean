@@ -126,12 +126,6 @@ export default function SubServicePage({
                     >
                       상담 문의하기
                     </a>
-                    <a
-                      href="/reserve"
-                      className="rounded-full border border-white/40 text-white px-7 py-3 font-bold text-sm hover:bg-white/10 transition-colors"
-                    >
-                      지금 예약하기
-                    </a>
                   </div>
                 </div>
 
