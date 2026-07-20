@@ -296,7 +296,7 @@ export const heroSlides: HeroSlide[] = [
     heading: "건물 공기의 심장\n공조기 유지관리",
     sub: "내부 세척·필터·핀코일 관리로 환기 효율을 되살립니다.",
     gradient: "linear-gradient(135deg, #115e59 0%, #14b8a6 100%)",
-    image: "/images/hero-4.jpg",
+    image: "/images/hvac-clean-hero.jpg",
     cta: "견적 문의하기",
   },
   {

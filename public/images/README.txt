@@ -7,7 +7,7 @@
 [홈 히어로 슬라이더 4장]
   hero-1.jpg  (시설관리 전문기업)
   hero-2.jpg  (에어컨 유지관리)
-  hero-4.jpg  (공조기 유지관리) ← 아직 없음. 넣으면 자동 표시
+  hvac-clean-hero.jpg  (공조기 유지관리 — 공조기 내부 세척 사진 공용)
   hero-3.jpg  (석재 유지관리)
 
 [홈 Vision / Mission / Story]
