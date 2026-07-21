@@ -5,6 +5,8 @@ export const siteConfig = {
   phone: "02-6448-7221",
   hours: "평일 10:00 ~ 18:00 (주말·공휴일 휴무)",
   email: "danbinuri25@danbinuri.kr",
+  // 카카오톡 채널 홈 주소. 상담 버튼은 여기에 /chat 을 붙여 1:1 채팅으로 연결합니다.
+  kakaoUrl: "https://pf.kakao.com/_XVYfX",
   ceo: "이영기",
   address: "서울특별시 서초구 논현로11길 49, 2층 (양재동)",
   businessNumber: "490-81-03515",
