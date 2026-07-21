@@ -14,8 +14,9 @@ export default function Header() {
         <div className="flex items-center justify-between h-16 gap-6">
           {/* 로고 + 인증마크 */}
           <div className="flex items-center gap-3 shrink-0">
-            <a href="/" className="text-2xl font-extrabold text-blue-700">
-              단비누리
+            <a href="/" className="shrink-0">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/logo.png" alt="단비누리" className="h-10 sm:h-12 w-auto" />
             </a>
             <div className="flex items-center gap-1.5">
               {certBadges.map((badge) => (
