@@ -442,7 +442,7 @@ export interface QnaListItem {
   answered: boolean;
 }
 
-// ── 시공사례 (에어컨 / 석재보수) ──
+// ── 시공사례 (에어컨 / 공조기 / 석재) ──
 export interface CaseItem {
   title: string;
   location: string;
@@ -456,8 +456,14 @@ export const airconCases: CaseItem[] = [
   { title: "상가 에어컨 신규 설치", location: "서울 송파구", desc: "매장 규모에 맞춘 용량 산정 후 설치", image: "/images/case-aircon-3.jpg" },
 ];
 
+export const hvacCases: CaseItem[] = [
+  { title: "빌딩 공조기 내부 세척", location: "서울 영등포구", desc: "내부 패널·송풍팬까지 완전 세척으로 환기 성능 회복", image: "/images/case-hvac-1.jpg" },
+  { title: "공조기 필터 교체·관리", location: "경기 고양시", desc: "막힌 필터 교체 후 환기 효율·전력 효율 개선", image: "/images/case-hvac-2.jpg" },
+  { title: "핀코일 전용 세척", location: "서울 강서구", desc: "전용 장비로 핀코일 손상 없이 세척, 냉난방 효율 회복", image: "/images/case-hvac-3.jpg" },
+];
+
 export const stoneCases: CaseItem[] = [
-  { title: "호텔 로비 대리석 연마 광택", location: "서울 중구", desc: "통행량 많은 로비 바닥 전체 균일 연마", image: "/images/case-stone-1.jpg" },
-  { title: "아파트 현관 줄눈 재시공", location: "경기 용인시", desc: "벌어진 줄눈 제거 후 방수·미관 복원", image: "/images/case-stone-2.jpg" },
-  { title: "매장 대리석 파손 보수", location: "서울 서초구", desc: "깨짐·파임 부위 충전재 보수 후 광택", image: "/images/case-stone-3.jpg" },
+  { title: "소프트타입 마루 광택기 작업", location: "서울 중구", desc: "마루 전용 소프트타입 광택기로 바닥 전체 균일 광택", image: "/images/case-stone-1.jpg" },
+  { title: "하드타입 연마 광택 시공", location: "경기 용인시", desc: "아킬리 하드타입 연마 광택기로 대리석 표면 깊은 광택 복원", image: "/images/case-stone-2.jpg" },
+  { title: "하드타입 습식 연마 광택", location: "서울 서초구", desc: "습식 연마 공정으로 얼룩·흠집 제거 후 거울 같은 마감", image: "/images/case-stone-3.jpg" },
 ];

@@ -4,7 +4,7 @@ import Footer from "@/components/layout/Footer";
 import FloatingCTA from "@/components/ui/FloatingCTA";
 import Container from "@/components/ui/Container";
 import SmartImage from "@/components/ui/SmartImage";
-import { airconCases, stoneCases, siteConfig, type CaseItem } from "@/lib/data";
+import { airconCases, hvacCases, stoneCases, siteConfig, type CaseItem } from "@/lib/data";
 import { MapPin } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -63,12 +63,23 @@ export default function CasesPage() {
           </Container>
         </section>
 
-        {/* 석재보수 시공사례 */}
+        {/* 공조기 시공사례 */}
         <section className="bg-slate-50">
           <Container className="py-16 lg:py-20">
             <div className="flex items-center gap-3 mb-8">
+              <span className="h-6 w-1.5 rounded-full bg-teal-600" />
+              <h2 className="text-2xl font-extrabold text-slate-900">공조기 시공사례</h2>
+            </div>
+            <CaseGrid cases={hvacCases} />
+          </Container>
+        </section>
+
+        {/* 석재 시공사례 */}
+        <section className="bg-white">
+          <Container className="py-16 lg:py-20">
+            <div className="flex items-center gap-3 mb-8">
               <span className="h-6 w-1.5 rounded-full bg-orange-500" />
-              <h2 className="text-2xl font-extrabold text-slate-900">석재보수 시공사례</h2>
+              <h2 className="text-2xl font-extrabold text-slate-900">석재 시공사례</h2>
             </div>
             <CaseGrid cases={stoneCases} />
           </Container>

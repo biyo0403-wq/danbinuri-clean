@@ -46,9 +46,10 @@
         04 부품 세척 / 05 건조 작업 / 06 실내기 재조립
         07 실외기 사이클 진단·점검 / 08 작동 테스트 및 최종점검
 
-[시공사례 페이지 - 아직 없음]
-  case-aircon-1.jpg ~ case-aircon-3.jpg (에어컨 사례)
-  case-stone-1.jpg  ~ case-stone-3.jpg  (석재 사례)
+[시공사례 페이지]
+  case-aircon-1.jpg ~ case-aircon-3.jpg (에어컨 사례) ← 아직 없음
+  case-hvac-1.jpg   ~ case-hvac-3.jpg   (공조기 사례) ← 아직 없음
+  case-stone-1.jpg  ~ case-stone-3.jpg  (석재 사례 - 광택기 작업 사진)
 
 참고
 - 확장자는 .jpg 기준입니다.
