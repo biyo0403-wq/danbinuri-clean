@@ -121,10 +121,10 @@ export default function SubServicePage({
 
                   <div className="mt-8 flex flex-wrap gap-3">
                     <a
-                      href={`tel:${siteConfig.phone}`}
+                      href="/reserve"
                       className="rounded-full bg-blue-600 text-white px-7 py-3 font-bold text-sm hover:bg-blue-700 transition-colors"
                     >
-                      상담 문의하기
+                      지금 예약하기
                     </a>
                   </div>
                 </div>
