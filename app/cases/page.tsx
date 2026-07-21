@@ -4,7 +4,8 @@ import Footer from "@/components/layout/Footer";
 import FloatingCTA from "@/components/ui/FloatingCTA";
 import Container from "@/components/ui/Container";
 import SmartImage from "@/components/ui/SmartImage";
-import { airconCases, hvacCases, stoneCases, siteConfig, type CaseItem } from "@/lib/data";
+// airconCases, hvacCases 는 실제 시공 사진 준비 후 다시 사용합니다.
+import { stoneCases, siteConfig, type CaseItem } from "@/lib/data";
 import { MapPin } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -52,7 +53,9 @@ export default function CasesPage() {
           </div>
         </Container>
 
-        {/* 에어컨 시공사례 */}
+        {/* 에어컨/공조기 시공사례는 실제 시공 사진이 준비되면 다시 노출합니다.
+            (사진이 준비되면 아래 두 섹션의 주석을 해제하세요.) */}
+        {/*
         <section className="bg-white">
           <Container className="pb-16 lg:pb-20">
             <div className="flex items-center gap-3 mb-8">
@@ -63,7 +66,6 @@ export default function CasesPage() {
           </Container>
         </section>
 
-        {/* 공조기 시공사례 */}
         <section className="bg-slate-50">
           <Container className="py-16 lg:py-20">
             <div className="flex items-center gap-3 mb-8">
@@ -73,9 +75,10 @@ export default function CasesPage() {
             <CaseGrid cases={hvacCases} />
           </Container>
         </section>
+        */}
 
         {/* 석재 시공사례 */}
-        <section className="bg-white">
+        <section className="bg-slate-50">
           <Container className="py-16 lg:py-20">
             <div className="flex items-center gap-3 mb-8">
               <span className="h-6 w-1.5 rounded-full bg-orange-500" />

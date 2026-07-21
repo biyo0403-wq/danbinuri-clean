@@ -302,20 +302,12 @@ export default function SubServicePage({
                 {detailedProcess.map((step, i) => (
                   <div
                     key={i}
-                    className="rounded-xl overflow-hidden bg-white border border-slate-200 shadow-sm"
+                    className="flex items-center gap-4 rounded-xl bg-white border border-slate-200 shadow-sm p-5"
                   >
-                    <div className="relative aspect-[4/3] bg-slate-100">
-                      <div
-                        className="absolute inset-0 bg-cover bg-center"
-                        style={{ backgroundImage: `url(${step.image})` }}
-                      />
-                    </div>
-                    <div className="p-5">
-                      <span className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-blue-600 text-white font-bold text-sm">
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
-                      <p className="mt-3 font-bold text-slate-900">{step.label}</p>
-                    </div>
+                    <span className="inline-flex shrink-0 items-center justify-center w-11 h-11 rounded-lg bg-blue-600 text-white font-extrabold">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <p className="font-bold text-slate-900 leading-snug">{step.label}</p>
                   </div>
                 ))}
               </div>
