@@ -7,7 +7,7 @@ export const siteConfig = {
   email: "danbinuri25@danbinuri.kr",
   // 카카오톡 채널 홈 주소. 상담 버튼은 여기에 /chat 을 붙여 1:1 채팅으로 연결합니다.
   kakaoUrl: "https://pf.kakao.com/_XVYfX",
-  ceo: "이영기",
+  ceo: "이영기/이지연",
   address: "서울특별시 서초구 논현로11길 49, 2층 (양재동)",
   businessNumber: "490-81-03515",
   copyright: "© 2026 단비누리. All rights reserved.",
